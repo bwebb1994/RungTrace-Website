@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="RungTrace is a professional PLC diagnostic workstation for Allen-Bradley controllers. Trace logic, monitor live tags, and find faults faster.">
+  <meta name="theme-color" content="#07101c">
+  <title>RungTrace — PLC Diagnostics, Without the Guesswork</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="site-config.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="#top" aria-label="RungTrace home">
+      <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+      <span>Rung<span>Trace</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#licensing">Licensing</a>
+      <a href="#requirements">Requirements</a>
+    </nav>
+    <div class="header-actions">
+      <a class="text-link desktop-only" href="#download">Download</a>
+      <a class="button button-small" href="#licensing">Get RungTrace</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+        <span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" data-mobile-nav>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#workflow">Workflow</a>
+      <a href="#licensing">Licensing</a>
+      <a href="#requirements">Requirements</a>
+      <a href="#download">Download</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-circuit" aria-hidden="true"></div>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="status-dot"></span> PLC diagnostic workstation</div>
+          <h1>Find the fault.<br><span>Follow the logic.</span></h1>
+          <p class="hero-lead">Live monitoring, interactive ladder logic, and deep dependency tracing for Allen-Bradley PLCs—all in one portable application.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#licensing">
+              Get RungTrace
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+            </a>
+            <a class="button button-ghost" href="#workflow">
+              See how it works
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 5 5 5-5 5"/></svg>
+            </a>
+          </div>
+          <div class="hero-proof">
+            <div><strong>Direct</strong><span>EtherNet/IP</span></div>
+            <div><strong>Portable</strong><span>Single EXE</span></div>
+            <div><strong>Native</strong><span>Windows 10/11</span></div>
+          </div>
+        </div>
+
+        <div class="product-stage reveal reveal-delay">
+          <div class="window-shadow"></div>
+          <div class="app-window" data-tilt>
+            <div class="app-titlebar">
+              <div class="app-brand">
+                <img src="RungTrace Logo No Text.png" alt="" width="23" height="23">
+                <span>RungTrace</span>
+              </div>
+              <div class="window-controls"><i></i><i></i><i></i></div>
+            </div>
+            <div class="app-toolbar">
+              <button class="tool-active">Logic Viewer</button>
+              <button>Watch List</button>
+              <button>Plot</button>
+              <span class="connection"><i></i> 192.168.1.10</span>
+            </div>
+            <div class="app-body">
+              <aside class="logic-tree">
+                <small>PROJECT</small>
+                <p class="tree-open">⌄ MainProgram</p>
+                <p class="tree-child selected">MainRoutine</p>
+                <p class="tree-child">Motor_Control</p>
+                <p class="tree-child">Fault_Handling</p>
+                <small>TAGS</small>
+                <p>Controller Tags</p>
+                <p>Program Tags</p>
+              </aside>
+              <div class="logic-canvas">
+                <div class="canvas-topline">
+                  <span>MainProgram / MainRoutine</span>
+                  <span class="live-pill"><i></i> LIVE</span>
+                </div>
+                <div class="rung-comment">Motor 1 start permissive and seal-in circuit</div>
+                <div class="rung">
+                  <span class="rail"></span>
+                  <span class="wire"></span>
+                  <div class="contact contact-on">
+                    <span>Motor_Start</span>
+                    <b>—| |—</b>
+                    <em>TRUE</em>
+                  </div>
+                  <span class="wire short"></span>
+                  <div class="contact contact-off">
+                    <span>Safety_OK</span>
+                    <b>—| |—</b>
+                    <em>FALSE</em>
+                  </div>
+                  <span class="wire"></span>
+                  <div class="coil">
+                    <span>Motor_Run</span>
+                    <b>—( )—</b>
+                    <em>FALSE</em>
+                  </div>
+                  <span class="rail rail-right"></span>
+                </div>
+                <div class="trace-callout">
+                  <div class="callout-icon">!</div>
+                  <div><small>BLOCKING CONDITION</small><strong>Safety_OK is false</strong></div>
+                  <span>Rung 12</span>
+                </div>
+                <div class="rung second-rung">
+                  <span class="rail"></span>
+                  <span class="wire"></span>
+                  <div class="contact contact-on">
+                    <span>Motor_Run</span><b>—| |—</b><em>TRUE</em>
+                  </div>
+                  <span class="wire grow"></span>
+                  <div class="timer">
+                    <span>TON</span>
+                    <div><small>Timer</small><b>Run_Timer</b></div>
+                    <div><small>PRE</small><b>5000</b></div>
+                    <div><small>ACC</small><b>2840</b></div>
+                  </div>
+                  <span class="wire"></span>
+                  <span class="rail rail-right"></span>
+                </div>
+              </div>
+            </div>
+            <div class="app-statusbar">
+              <span><i></i> Connected</span>
+              <span>Polling 14 tags · 100 ms</span>
+              <span>v<span data-version>1.0.0</span></span>
+            </div>
+          </div>
+          <div class="floating-card floating-trace">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v5m0 8v5M3 8h6v8H3m15-5V3m0 18v-5m-3-5h6v5h-6"/></svg>
+            <div><small>WHY NOT?</small><strong>Root cause found</strong></div>
+          </div>
+          <div class="floating-card floating-latency">
+            <i></i>
+            <div><small>LIVE POLLING</small><strong>100 ms</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-bottom-fade"></div>
+    </section>
+
+    <section class="compatibility-strip" aria-label="Supported controllers">
+      <div class="container">
+        <span>Built for the Allen-Bradley ecosystem</span>
+        <div class="controller-list">
+          <strong>ControlLogix</strong><i></i><strong>CompactLogix</strong><i></i><strong>Micro800</strong><i></i><strong>MicroLogix</strong><i></i><strong>SLC-500</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="section problem-section" id="workflow">
+      <div class="container">
+        <div class="section-intro centered reveal">
+          <div class="eyebrow">From symptom to source</div>
+          <h2>Stop searching. Start tracing.</h2>
+          <p>RungTrace turns the question “why isn’t this on?” into a short, visible path through your actual program logic.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow-step reveal">
+            <span class="step-number">01</span>
+            <div class="step-icon">
+              <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 4h16v20H6zM9 9h10M9 14h7M9 19h5"/></svg>
+            </div>
+            <h3>Load your project</h3>
+            <p>Import a Studio 5000 L5X export. Programs, routines, comments, tags, and AOIs are mapped automatically.</p>
+          </article>
+          <article class="workflow-step reveal reveal-delay">
+            <span class="step-number">02</span>
+            <div class="step-icon">
+              <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 19v4h4m10 0h4v-4M9 5H5v4m18 0V5h-4M9 14h10M14 9v10"/></svg>
+            </div>
+            <h3>Connect live</h3>
+            <p>Connect directly over EtherNet/IP or use an existing RSLinx device. Live values appear directly on the rung.</p>
+          </article>
+          <article class="workflow-step reveal reveal-delay-2">
+            <span class="step-number">03</span>
+            <div class="step-icon">
+              <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 14h5l3-7 4 14 3-7h3M4 24h20"/></svg>
+            </div>
+            <h3>Trace the cause</h3>
+            <p>Select a blocked output. RungTrace follows every dependency and isolates the condition holding it back.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section capabilities" id="capabilities">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">One diagnostic environment</div>
+            <h2>Everything you need to understand what the PLC is doing.</h2>
+          </div>
+          <p>Built for controls engineers, integrators, and technicians who need answers at the machine—not another layer of configuration.</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card feature-large reveal">
+            <div class="feature-copy">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 19h16M7 5v14m10-14v14M7 10h4l2 4h4"/></svg>
+              </div>
+              <span class="feature-kicker">Interactive logic</span>
+              <h3>See the program come alive.</h3>
+              <p>Render ladder logic, structured text, and AOIs from L5X. Overlay live values, watch timers count, and edit supported values without leaving the rung.</p>
+            </div>
+            <div class="mini-rung-visual" aria-hidden="true">
+              <div><span class="mini-label">Start_PB</span><b class="energized">—| |—</b></div>
+              <i></i>
+              <div><span class="mini-label">Guard_OK</span><b>—| |—</b></div>
+              <i></i>
+              <div><span class="mini-label">Conveyor_Run</span><b>—( )—</b></div>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4M11 8v6m-3-3h6"/></svg>
+            </div>
+            <span class="feature-kicker">Why Not? analysis</span>
+            <h3>Find the blocking condition.</h3>
+            <p>Build a visual dependency tree, hide satisfied branches, and follow the fault to its root cause.</p>
+            <div class="dependency-visual" aria-hidden="true">
+              <span class="node node-root">Motor_Run</span>
+              <i class="branch"></i>
+              <span class="node node-good">Start_PB ✓</span>
+              <span class="node node-bad">Safety_OK ×</span>
+            </div>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18 9 11l4 3 7-9M4 21h16"/></svg>
+            </div>
+            <span class="feature-kicker">Real-time plotting</span>
+            <h3>Capture the moment.</h3>
+            <p>Plot multiple tags from 50 ms sampling to one-hour windows. Pause, inspect, and export every sample.</p>
+            <svg class="chart-visual" viewBox="0 0 330 100" preserveAspectRatio="none" aria-hidden="true">
+              <defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1689ff" stop-opacity=".28"/><stop offset="1" stop-color="#1689ff" stop-opacity="0"/></linearGradient></defs>
+              <path class="chart-grid" d="M0 20h330M0 50h330M0 80h330M55 0v100M110 0v100M165 0v100M220 0v100M275 0v100"/>
+              <path class="chart-area" d="M0 76 25 72 50 74 75 38 100 45 125 42 150 65 175 61 200 25 225 31 250 29 275 50 300 46 330 18V100H0Z"/>
+              <path class="chart-line" d="M0 76 25 72 50 74 75 38 100 45 125 42 150 65 175 61 200 25 225 31 250 29 275 50 300 46 330 18"/>
+            </svg>
+          </article>
+
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M7 8h5v3H7zm4 5h7v3h-7zm-4 5h9v2H7z"/></svg>
+            </div>
+            <span class="feature-kicker">Sequence timing</span>
+            <h3>Measure the machine cycle.</h3>
+            <p>Build reusable Gantt timelines with dependencies and triggers to expose sequence delays and timing drift.</p>
+            <div class="gantt-visual" aria-hidden="true">
+              <span style="--start:0;--width:48%"></span>
+              <span style="--start:33%;--width:43%"></span>
+              <span style="--start:63%;--width:34%"></span>
+            </div>
+          </article>
+
+          <article class="feature-card feature-wide reveal">
+            <div class="feature-copy">
+              <div class="feature-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3zM7 7v10m5-10v10m5-10v10M5 4h14M5 20h14"/></svg>
+              </div>
+              <span class="feature-kicker">Hardware visibility</span>
+              <h3>Know what is actually in the chassis.</h3>
+              <p>Scan backplanes, inspect firmware and faults, compare live hardware with the L5X configuration, and surface missing or mismatched modules.</p>
+            </div>
+            <div class="chassis" aria-hidden="true">
+              <div class="module processor"><i></i><small>1756-L83E</small><span>RUN</span><span>I/O</span></div>
+              <div class="module"><i></i><small>EN2T</small><span>NET</span><span>OK</span></div>
+              <div class="module"><i></i><small>IB16</small><span>0 1 2 3</span><span>4 5 6 7</span></div>
+              <div class="module module-warn"><i></i><small>OB16E</small><span>0 1 2 3</span><span>4 5 6 7</span></div>
+              <div class="module empty"><small>EMPTY</small></div>
+            </div>
+          </article>
+        </div>
+
+        <div class="secondary-features reveal">
+          <div><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14"/></svg><span><strong>Multi-PLC monitoring</strong>One watch list across every active controller.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 10h8m-8 4h5"/></svg><span><strong>Full tag browser</strong>Search, filter, import, read, and write.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6zM14 4v4h4M9 12h6m-6 4h6"/></svg><span><strong>Audit-ready exports</strong>CSV data and detailed write logs.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2-5M5 4v5h5"/></svg><span><strong>Saved workspaces</strong>Keep watch lists, filters, and timelines.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section floor-section">
+      <div class="container floor-grid">
+        <div class="floor-copy reveal">
+          <div class="eyebrow">Designed for the plant floor</div>
+          <h2>Your diagnostic workstation, wherever the problem is.</h2>
+          <p>No installer. No runtime dependencies. No OPC topic configuration. RungTrace is a self-contained Windows application you can keep on your laptop or USB drive.</p>
+          <ul class="check-list">
+            <li><span>✓</span> Direct CIP communication over EtherNet/IP</li>
+            <li><span>✓</span> No Studio 5000 license required for L5X viewing</li>
+            <li><span>✓</span> RSLinx integration when you want it—not when you don’t</li>
+            <li><span>✓</span> Built-in mock mode for training and demonstrations</li>
+          </ul>
+        </div>
+        <div class="floor-panel reveal reveal-delay">
+          <div class="portable-badge">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 5h15l6 6v24H10zM24 5v8h8M16 24h10m-5-5v10"/></svg>
+            <span><small>DELIVERY</small><strong>One portable EXE</strong></span>
+          </div>
+          <div class="system-row"><span>Operating system</span><strong>Windows 10 / 11</strong></div>
+          <div class="system-row"><span>Runtime</span><strong>Self-contained</strong></div>
+          <div class="system-row"><span>PLC connection</span><strong>EtherNet/IP</strong></div>
+          <div class="system-row"><span>Project format</span><strong>Studio 5000 L5X</strong></div>
+          <div class="system-row"><span>License</span><strong>Machine-locked</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pricing-section" id="licensing">
+      <div class="container">
+        <div class="section-intro centered reveal">
+          <div class="eyebrow">Straightforward licensing</div>
+          <h2>Choose the license that fits your work.</h2>
+          <p>Activate on your machine, deactivate when needed, and move your license to another workstation.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card reveal">
+            <div class="price-top">
+              <span class="plan-label">Individual</span>
+              <h3>Individual</h3>
+              <p>For one controls professional working across machines and sites.</p>
+            </div>
+            <div class="price" data-price="engineer">$—</div>
+            <span class="price-note" data-price-note="engineer">per license</span>
+            <ul>
+              <li>One active machine</li>
+              <li>All diagnostic tools</li>
+              <li>License transfer access</li>
+              <li>Product updates</li>
+            </ul>
+            <a class="button button-outline button-full" href="#" data-checkout="engineer">Purchase license</a>
+          </article>
+          <article class="price-card featured reveal reveal-delay">
+            <div class="popular-label">Most popular</div>
+            <div class="price-top">
+              <span class="plan-label">Small team</span>
+              <h3>Team</h3>
+              <p>For integrators and plant teams purchasing 5 to 25 seats.</p>
+            </div>
+            <div class="price" data-price="team">$—</div>
+            <span class="price-note" data-price-note="team">per license pack</span>
+            <ul>
+              <li>5–25 licensed seats</li>
+              <li>All diagnostic tools</li>
+              <li>Central license management</li>
+              <li>Priority product updates</li>
+            </ul>
+            <a class="button button-primary button-full" href="#" data-checkout="team">Purchase team pack</a>
+          </article>
+          <article class="price-card reveal reveal-delay-2">
+            <div class="price-top">
+              <span class="plan-label">Organization</span>
+              <h3>Site License</h3>
+              <p>Flexible deployment for facilities and engineering groups.</p>
+            </div>
+            <div class="price price-custom">Let’s talk</div>
+            <span class="price-note">Volume licensing</span>
+            <ul>
+              <li>Custom machine count</li>
+              <li>All diagnostic tools</li>
+              <li>Deployment assistance</li>
+              <li>Direct support channel</li>
+            </ul>
+            <a class="button button-outline button-full" href="mailto:sales@example.com" data-sales-email>Contact sales</a>
+          </article>
+        </div>
+        <p class="licensing-note reveal">Secure license activation and management powered by DevoLens. Internet access is required for activation and periodic verification.</p>
+      </div>
+    </section>
+
+    <section class="section download-section" id="download">
+      <div class="download-circuit" aria-hidden="true"></div>
+      <div class="container download-card reveal">
+        <div class="download-copy">
+          <div class="eyebrow"><span class="status-dot"></span> Latest release</div>
+          <h2>Put RungTrace on your diagnostic laptop.</h2>
+          <p>Download the latest signed Windows build. A valid license is required after the evaluation period.</p>
+          <div class="release-meta">
+            <span>Version <strong data-version>1.0.0</strong></span>
+            <i></i>
+            <span>Released <strong data-release-date>Coming soon</strong></span>
+            <i></i>
+            <span>Windows x64</span>
+          </div>
+        </div>
+        <div class="download-action">
+          <a class="button button-primary button-download" href="#" data-download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 20h14"/></svg>
+            Download for Windows
+          </a>
+          <a class="checksum-link" href="#" data-release-notes>View release notes <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section requirements-section" id="requirements">
+      <div class="container requirements-grid">
+        <div class="requirements-title reveal">
+          <div class="eyebrow">Before you connect</div>
+          <h2>Technical requirements</h2>
+        </div>
+        <div class="requirement-list reveal reveal-delay">
+          <div><span>01</span><p><strong>Windows 10 or 11</strong>64-bit system recommended.</p></div>
+          <div><span>02</span><p><strong>Network access</strong>Your PC must be able to reach the PLC over EtherNet/IP.</p></div>
+          <div><span>03</span><p><strong>L5X export</strong>Required only for offline logic viewing and project-aware analysis.</p></div>
+          <div><span>04</span><p><strong>Internet access</strong>Required for license activation and periodic verification.</p></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-main">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+          <span>Rung<span>Trace</span></span>
+        </a>
+        <p>PLC diagnostics without the guesswork.</p>
+      </div>
+      <div class="footer-links">
+        <div><strong>Product</strong><a href="#capabilities">Capabilities</a><a href="#licensing">Licensing</a><a href="#download">Download</a></div>
+        <div><strong>Support</strong><a href="mailto:support@example.com" data-support-email>Contact support</a><a href="#" data-documentation>Documentation</a><a href="#" data-license-portal>Manage license</a></div>
+        <div><strong>Legal</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="eula.html">EULA</a></div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span data-year></span> RungTrace. All rights reserved.</span>
+      <span>Allen-Bradley, ControlLogix, CompactLogix, Studio 5000, and RSLinx are trademarks of Rockwell Automation, Inc. RungTrace is not affiliated with or endorsed by Rockwell Automation.</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast>
+    <strong>Link not configured</strong>
+    <span>Update this destination in site-config.js.</span>
+  </div>
+</body>
+</html>
