@@ -6,7 +6,7 @@ Static product and licensing website prepared for Netlify.
 
 Edit `site-config.js` before deployment:
 
-- Set `downloadUrl` to the latest signed Windows release.
+- Set `downloadUrl` to the latest Windows release.
 - Set the two `checkoutUrl` values to the matching DevoLens hosted checkout links.
 - Set `licensePortalUrl` to the customer license-management portal.
 - Add final pricing, release version/date, contact emails, documentation, and release notes.

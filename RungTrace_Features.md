@@ -2,7 +2,7 @@
 
 ## What Is RungTrace?
 
-RungTrace is a standalone desktop application for Allen-Bradley PLC diagnostics. It connects directly to ControlLogix, CompactLogix, Micro800, MicroLogix, and SLC-500 controllers over EtherNet/IP — no RSLinx OPC configuration required — and gives you live tag monitoring, program logic viewing, and powerful diagnostic tools in a single portable executable.
+RungTrace is a standalone desktop application for Allen-Bradley PLC diagnostics. It connects directly to ControlLogix and CompactLogix controllers over EtherNet/IP — no RSLinx installation or OPC configuration required — and gives you live tag monitoring, program logic viewing, and powerful diagnostic tools in a single portable executable.
 
 Import your Studio 5000 L5X export and RungTrace becomes a full offline+online diagnostic workstation: browse ladder logic with live PLC values overlaid, trace tag dependencies, cross-reference every usage, and answer "why isn't this turning on?" with one click.
 
@@ -65,25 +65,13 @@ Find every occurrence of a tag across the entire L5X project — every rung wher
 
 ---
 
-## Why Not? Analysis
-
-Select a tag that should be ON but isn't, and RungTrace traces backward through the logic to explain why.
-
-- Builds a visual dependency tree showing every condition in the chain.
-- Each node shows whether its condition is satisfied, blocked, or unknown.
-- Filter to show only blocking branches to quickly isolate the root cause.
-- Configurable trace depth (3, 5, 10, or 20 levels).
-- Detects and flags circular references.
-
----
-
 ## Real-Time Plotting
 
 Open the Plot tool to visualize tag values as a scrolling time-series chart.
 
 - Overlay multiple tags on a single chart.
 - Adjustable time window from 1 second to 1 hour.
-- Configurable sample rate from 50 ms to 1 second.
+- Selectable sample rate from 50 ms to 1 second. Actual performance depends on tag count, network latency, PLC load, and display workload.
 - Pause and resume the live stream to inspect a moment in time.
 - Export all recorded samples to CSV.
 
@@ -123,7 +111,7 @@ Scan the physical backplane of a connected PLC chassis to see every module slot.
 
 ## Connection Options
 
-- **RSLinx integration** — If RSLinx Classic is installed, RungTrace discovers all configured drivers and devices automatically. Select a device and connect in one click.
+- **Optional RSLinx discovery** — If RSLinx Classic is installed, RungTrace can discover endpoints from its configured drivers. RSLinx is not used for the PLC connection itself.
 - **Manual connection** — Enter an IP address and slot number to connect directly over EtherNet/IP. No RSLinx required.
 - **Favorites** — Save frequently-used PLC connections as named favorites for one-click access.
 - **Multi-PLC** — Connect to multiple PLCs at the same time. All tools — watch list, plotting, Gantt, backplane viewer — work across all active connections.
@@ -135,7 +123,7 @@ Scan the physical backplane of a connected PLC chassis to see every module slot.
 
 - **Portable executable** — Single self-contained EXE. No installer, no runtime dependencies. Copy it to a USB drive and run it on any Windows 10/11 machine.
 - **No Studio 5000 license required** — View and analyze PLC program logic from L5X exports without needing a Rockwell software license on the diagnostic machine.
-- **No RSLinx OPC setup** — Communicates directly over EtherNet/IP using the CIP protocol. RSLinx is optional, not required.
+- **No RSLinx required** — Communicates directly over EtherNet/IP using the CIP protocol. RSLinx is optional and used only to discover existing endpoints.
 - **Dark theme** — A clean, professional dark interface designed for extended use in control rooms and on the plant floor.
 - **Diagnostic logging** — All operations are logged to daily log files for troubleshooting and audit trails.
 - **Machine-locked licensing** — Cloud-verified license activation tied to the machine. Deactivate from one machine and reactivate on another as needed.

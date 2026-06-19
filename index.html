@@ -26,6 +26,7 @@
       <a href="#workflow">Workflow</a>
       <a href="#licensing">Licensing</a>
       <a href="#requirements">Requirements</a>
+      <a href="faq.html">FAQ</a>
     </nav>
     <div class="header-actions">
       <a class="text-link desktop-only" href="#download">Download</a>
@@ -41,6 +42,7 @@
       <a href="#licensing">Licensing</a>
       <a href="#requirements">Requirements</a>
       <a href="#download">Download</a>
+      <a href="faq.html">FAQ</a>
     </nav>
   </header>
 
@@ -52,7 +54,7 @@
         <div class="hero-copy reveal">
           <div class="eyebrow"><span class="status-dot"></span> PLC diagnostic workstation</div>
           <h1>Find the fault.<br><span>Follow the logic.</span></h1>
-          <p class="hero-lead">Live monitoring, interactive ladder logic, and deep dependency tracing for Allen-Bradley PLCs—all in one portable application.</p>
+          <p class="hero-lead">Search, monitor, and troubleshoot ControlLogix and CompactLogix PLCs across an entire site—without requiring RSLinx or a full Studio 5000 license.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="#licensing">
               Get RungTrace
@@ -64,9 +66,9 @@
             </a>
           </div>
           <div class="hero-proof">
-            <div><strong>Direct</strong><span>EtherNet/IP</span></div>
-            <div><strong>Portable</strong><span>Single EXE</span></div>
-            <div><strong>Native</strong><span>Windows 10/11</span></div>
+            <div><strong>RSLinx optional</strong><span>Direct EtherNet/IP</span></div>
+            <div><strong>Multi-PLC</strong><span>One workspace</span></div>
+            <div><strong>Portable</strong><span>Single Windows EXE</span></div>
           </div>
         </div>
 
@@ -156,7 +158,7 @@
           </div>
           <div class="floating-card floating-trace">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v5m0 8v5M3 8h6v8H3m15-5V3m0 18v-5m-3-5h6v5h-6"/></svg>
-            <div><small>WHY NOT?</small><strong>Root cause found</strong></div>
+            <div><small>TAG TRACE</small><strong>Write path found</strong></div>
           </div>
           <div class="floating-card floating-latency">
             <i></i>
@@ -171,7 +173,7 @@
       <div class="container">
         <span>Built for the Allen-Bradley ecosystem</span>
         <div class="controller-list">
-          <strong>ControlLogix</strong><i></i><strong>CompactLogix</strong><i></i><strong>Micro800</strong><i></i><strong>MicroLogix</strong><i></i><strong>SLC-500</strong>
+          <strong>ControlLogix</strong><i></i><strong>CompactLogix</strong>
         </div>
       </div>
     </section>
@@ -181,7 +183,7 @@
         <div class="section-intro centered reveal">
           <div class="eyebrow">From symptom to source</div>
           <h2>Stop searching. Start tracing.</h2>
-          <p>RungTrace turns the question “why isn’t this on?” into a short, visible path through your actual program logic.</p>
+          <p>When the call is “Motor M300 isn’t running,” RungTrace takes you from a site-wide search to the exact blocking condition in minutes.</p>
         </div>
         <div class="workflow-grid">
           <article class="workflow-step reveal">
@@ -189,16 +191,16 @@
             <div class="step-icon">
               <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M6 4h16v20H6zM9 9h10M9 14h7M9 19h5"/></svg>
             </div>
-            <h3>Load your project</h3>
-            <p>Import a Studio 5000 L5X export. Programs, routines, comments, tags, and AOIs are mapped automatically.</p>
+            <h3>Search every controller</h3>
+            <p>Enter PLC addresses, choose saved favorites, or use an optional RSLinx driver to discover and connect to multiple controllers at once. Then search controller- and program-level tags to find exactly where Motor M300 is controlled.</p>
           </article>
           <article class="workflow-step reveal reveal-delay">
             <span class="step-number">02</span>
             <div class="step-icon">
               <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 19v4h4m10 0h4v-4M9 5H5v4m18 0V5h-4M9 14h10M14 9v10"/></svg>
             </div>
-            <h3>Connect live</h3>
-            <p>Connect directly over EtherNet/IP or use an existing RSLinx device. Live values appear directly on the rung.</p>
+            <h3>Watch it live</h3>
+            <p>Add the relevant tags to one unified watch list, monitor them in real time, and safely write values back when troubleshooting calls for it.</p>
           </article>
           <article class="workflow-step reveal reveal-delay-2">
             <span class="step-number">03</span>
@@ -206,7 +208,7 @@
               <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 14h5l3-7 4 14 3-7h3M4 24h20"/></svg>
             </div>
             <h3>Trace the cause</h3>
-            <p>Select a blocked output. RungTrace follows every dependency and isolates the condition holding it back.</p>
+            <p>Select any tag on the rung. Tag Trace follows every write—even through Add-On Instructions—and reveals the bit holding the process back.</p>
           </article>
         </div>
       </div>
@@ -219,7 +221,7 @@
             <div class="eyebrow">One diagnostic environment</div>
             <h2>Everything you need to understand what the PLC is doing.</h2>
           </div>
-          <p>Built for controls engineers, integrators, and technicians who need answers at the machine—not another layer of configuration.</p>
+          <p>Built for support engineers, controls professionals, and maintenance teams who need to cover more equipment and reach the answer faster.</p>
         </div>
 
         <div class="feature-grid">
@@ -229,8 +231,8 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 19h16M7 5v14m10-14v14M7 10h4l2 4h4"/></svg>
               </div>
               <span class="feature-kicker">Interactive logic</span>
-              <h3>See the program come alive.</h3>
-              <p>Render ladder logic, structured text, and AOIs from L5X. Overlay live values, watch timers count, and edit supported values without leaving the rung.</p>
+              <h3>Turn an L5X file into a live workstation.</h3>
+              <p>Graphically browse ladder logic and function block diagrams, or view structured text and AOIs, without a Studio 5000 license. Monitor FBD values; monitor, toggle, and edit supported values directly in ladder logic.</p>
             </div>
             <div class="mini-rung-visual" aria-hidden="true">
               <div><span class="mini-label">Start_PB</span><b class="energized">—| |—</b></div>
@@ -245,9 +247,9 @@
             <div class="feature-icon">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="m16 16 4 4M11 8v6m-3-3h6"/></svg>
             </div>
-            <span class="feature-kicker">Why Not? analysis</span>
-            <h3>Find the blocking condition.</h3>
-            <p>Build a visual dependency tree, hide satisfied branches, and follow the fault to its root cause.</p>
+            <span class="feature-kicker">Tag Trace</span>
+            <h3>Skip the cross-reference chase.</h3>
+            <p>Select a tag anywhere on a rung and instantly build a visual flow of everything that writes to it. RungTrace follows the chain through routines and AOIs until the bit preventing the system from enabling is clear. Traditional cross-reference remains available when you need it.</p>
             <div class="dependency-visual" aria-hidden="true">
               <span class="node node-root">Motor_Run</span>
               <i class="branch"></i>
@@ -261,8 +263,8 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18 9 11l4 3 7-9M4 21h16"/></svg>
             </div>
             <span class="feature-kicker">Real-time plotting</span>
-            <h3>Capture the moment.</h3>
-            <p>Plot multiple tags from 50 ms sampling to one-hour windows. Pause, inspect, and export every sample.</p>
+            <h3>See values change over time.</h3>
+            <p>Trend tags from multiple PLCs on one chart, with selectable sampling as fast as 50 ms. Actual rates vary with network conditions and workload. Pause, inspect, compare, and export the moment the process goes wrong.</p>
             <svg class="chart-visual" viewBox="0 0 330 100" preserveAspectRatio="none" aria-hidden="true">
               <defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1689ff" stop-opacity=".28"/><stop offset="1" stop-color="#1689ff" stop-opacity="0"/></linearGradient></defs>
               <path class="chart-grid" d="M0 20h330M0 50h330M0 80h330M55 0v100M110 0v100M165 0v100M220 0v100M275 0v100"/>
@@ -276,8 +278,8 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M7 8h5v3H7zm4 5h7v3h-7zm-4 5h9v2H7z"/></svg>
             </div>
             <span class="feature-kicker">Sequence timing</span>
-            <h3>Measure the machine cycle.</h3>
-            <p>Build reusable Gantt timelines with dependencies and triggers to expose sequence delays and timing drift.</p>
+            <h3>Slow down the process—without slowing the machine.</h3>
+            <p>Turn high-speed machine operations into a color-coded Gantt chart. Expose missed steps, sequence delays, and timing drift that happen too quickly to catch in live logic.</p>
             <div class="gantt-visual" aria-hidden="true">
               <span style="--start:0;--width:48%"></span>
               <span style="--start:33%;--width:43%"></span>
@@ -291,8 +293,8 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3zM7 7v10m5-10v10m5-10v10M5 4h14M5 20h14"/></svg>
               </div>
               <span class="feature-kicker">Hardware visibility</span>
-              <h3>Know what is actually in the chassis.</h3>
-              <p>Scan backplanes, inspect firmware and faults, compare live hardware with the L5X configuration, and surface missing or mismatched modules.</p>
+              <h3>Spot chassis problems at a glance.</h3>
+              <p>Scan backplanes across connected PLCs, identify faulted modules, inspect firmware, and compare live hardware with the L5X configuration to surface missing or mismatched equipment.</p>
             </div>
             <div class="chassis" aria-hidden="true">
               <div class="module processor"><i></i><small>1756-L83E</small><span>RUN</span><span>I/O</span></div>
@@ -305,10 +307,10 @@
         </div>
 
         <div class="secondary-features reveal">
-          <div><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14"/></svg><span><strong>Multi-PLC monitoring</strong>One watch list across every active controller.</span></div>
-          <div><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 10h8m-8 4h5"/></svg><span><strong>Full tag browser</strong>Search, filter, import, read, and write.</span></div>
-          <div><svg viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6zM14 4v4h4M9 12h6m-6 4h6"/></svg><span><strong>Audit-ready exports</strong>CSV data and detailed write logs.</span></div>
-          <div><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2-5M5 4v5h5"/></svg><span><strong>Saved workspaces</strong>Keep watch lists, filters, and timelines.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M12 3v18M5 8h14M5 16h14"/></svg><span><strong>One view, many PLCs</strong>Monitor tags across every active controller. A global Write Enable control prevents unintended writes.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM8 10h8m-8 4h5"/></svg><span><strong>Site-wide tag search</strong>Find controller- and program-level tags across multiple PLCs.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M6 4h9l3 3v13H6zM14 4v4h4M9 12h6m-6 4h6"/></svg><span><strong>Reusable diagnostic templates</strong>Save tag lists and filters for each machine or process.</span></div>
+          <div><svg viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2-5M5 4v5h5"/></svg><span><strong>Built for learning, too</strong>Give maintenance teams practical PLC visibility without another full engineering license.</span></div>
         </div>
       </div>
     </section>
@@ -318,12 +320,12 @@
         <div class="floor-copy reveal">
           <div class="eyebrow">Designed for the plant floor</div>
           <h2>Your diagnostic workstation, wherever the problem is.</h2>
-          <p>No installer. No runtime dependencies. No OPC topic configuration. RungTrace is a self-contained Windows application you can keep on your laptop or USB drive.</p>
+          <p>No installer. No runtime dependencies. No mandatory RSLinx setup. RungTrace is a lightweight, self-contained Windows application you can keep on your laptop or USB drive—and deploy without another software stack to manage.</p>
           <ul class="check-list">
             <li><span>✓</span> Direct CIP communication over EtherNet/IP</li>
             <li><span>✓</span> No Studio 5000 license required for L5X viewing</li>
-            <li><span>✓</span> RSLinx integration when you want it—not when you don’t</li>
-            <li><span>✓</span> Built-in mock mode for training and demonstrations</li>
+            <li><span>✓</span> Full feature support for ControlLogix and CompactLogix</li>
+            <li><span>✓</span> A fraction of the cost of a full Studio 5000 license</li>
           </ul>
         </div>
         <div class="floor-panel reveal reveal-delay">
@@ -335,7 +337,7 @@
           <div class="system-row"><span>Runtime</span><strong>Self-contained</strong></div>
           <div class="system-row"><span>PLC connection</span><strong>EtherNet/IP</strong></div>
           <div class="system-row"><span>Project format</span><strong>Studio 5000 L5X</strong></div>
-          <div class="system-row"><span>License</span><strong>Machine-locked</strong></div>
+          <div class="system-row"><span>License</span><strong>Machine-locked · Self-transfer</strong></div>
         </div>
       </div>
     </section>
@@ -344,8 +346,8 @@
       <div class="container">
         <div class="section-intro centered reveal">
           <div class="eyebrow">Straightforward licensing</div>
-          <h2>Choose the license that fits your work.</h2>
-          <p>Activate on your machine, deactivate when needed, and move your license to another workstation.</p>
+          <h2>Full-strength diagnostics. Sensible pricing.</h2>
+          <p>Equip one engineer or an entire support team with powerful PLC troubleshooting tools at a fraction of the cost of a Studio 5000 license.</p>
         </div>
         <div class="pricing-grid">
           <article class="price-card reveal">
@@ -359,8 +361,9 @@
             <ul>
               <li>One active machine</li>
               <li>All diagnostic tools</li>
-              <li>License transfer access</li>
+              <li>Self-service license transfers</li>
               <li>Product updates</li>
+              <li>Application access while subscribed</li>
             </ul>
             <a class="button button-outline button-full" href="#" data-checkout="engineer">Purchase license</a>
           </article>
@@ -369,17 +372,18 @@
             <div class="price-top">
               <span class="plan-label">Small team</span>
               <h3>Team</h3>
-              <p>For integrators and plant teams purchasing 5 to 25 seats.</p>
+              <p>For controls teams purchasing 5 to 25 annual seats.</p>
             </div>
             <div class="price" data-price="team">$—</div>
             <span class="price-note" data-price-note="team">per license pack</span>
             <ul>
-              <li>5–25 licensed seats</li>
+              <li>Five-seat minimum</li>
+              <li>$399 per seat, per year</li>
               <li>All diagnostic tools</li>
               <li>Central license management</li>
-              <li>Priority product updates</li>
+              <li>Application access while subscribed</li>
             </ul>
-            <a class="button button-primary button-full" href="#" data-checkout="team">Purchase team pack</a>
+            <a class="button button-primary button-full" href="#" data-checkout="team">Purchase team seats</a>
           </article>
           <article class="price-card reveal reveal-delay-2">
             <div class="price-top">
@@ -398,7 +402,7 @@
             <a class="button button-outline button-full" href="mailto:sales@example.com" data-sales-email>Contact sales</a>
           </article>
         </div>
-        <p class="licensing-note reveal">Secure license activation and management powered by DevoLens. Internet access is required for activation and periodic verification.</p>
+        <p class="licensing-note reveal">Secure license activation and management powered by DevoLens. Internet access is required once for initial activation; RungTrace then works fully offline. Annual access ends when a subscription expires.</p>
       </div>
     </section>
 
@@ -406,13 +410,13 @@
       <div class="download-circuit" aria-hidden="true"></div>
       <div class="container download-card reveal">
         <div class="download-copy">
-          <div class="eyebrow"><span class="status-dot"></span> Latest release</div>
-          <h2>Put RungTrace on your diagnostic laptop.</h2>
-          <p>Download the latest signed Windows build. A valid license is required after the evaluation period.</p>
+          <div class="eyebrow"><span class="status-dot"></span> Coming soon</div>
+          <h2>Try the complete toolkit free for 30 days.</h2>
+          <p>RungTrace is preparing for release. At launch, anyone can start a 30-day trial before choosing a paid license.</p>
           <div class="release-meta">
             <span>Version <strong data-version>1.0.0</strong></span>
             <i></i>
-            <span>Released <strong data-release-date>Coming soon</strong></span>
+            <span>Availability <strong data-release-date>Coming soon</strong></span>
             <i></i>
             <span>Windows x64</span>
           </div>
@@ -420,7 +424,7 @@
         <div class="download-action">
           <a class="button button-primary button-download" href="#" data-download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 20h14"/></svg>
-            Download for Windows
+            Download when available
           </a>
           <a class="checksum-link" href="#" data-release-notes>View release notes <span>↗</span></a>
         </div>
@@ -436,8 +440,8 @@
         <div class="requirement-list reveal reveal-delay">
           <div><span>01</span><p><strong>Windows 10 or 11</strong>64-bit system recommended.</p></div>
           <div><span>02</span><p><strong>Network access</strong>Your PC must be able to reach the PLC over EtherNet/IP.</p></div>
-          <div><span>03</span><p><strong>L5X export</strong>Required only for offline logic viewing and project-aware analysis.</p></div>
-          <div><span>04</span><p><strong>Internet access</strong>Required for license activation and periodic verification.</p></div>
+          <div><span>03</span><p><strong>L5X export</strong>Required for logic viewing, cross-reference, Tag Trace, and other project-aware analysis.</p></div>
+          <div><span>04</span><p><strong>Internet access</strong>Required once for initial license or trial activation. The application works offline afterward.</p></div>
         </div>
       </div>
     </section>
@@ -453,7 +457,7 @@
         <p>PLC diagnostics without the guesswork.</p>
       </div>
       <div class="footer-links">
-        <div><strong>Product</strong><a href="#capabilities">Capabilities</a><a href="#licensing">Licensing</a><a href="#download">Download</a></div>
+        <div><strong>Product</strong><a href="#capabilities">Capabilities</a><a href="#licensing">Licensing</a><a href="#download">Download</a><a href="faq.html">FAQ &amp; terminology</a></div>
         <div><strong>Support</strong><a href="mailto:support@example.com" data-support-email>Contact support</a><a href="#" data-documentation>Documentation</a><a href="#" data-license-portal>Manage license</a></div>
         <div><strong>Legal</strong><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="eula.html">EULA</a></div>
       </div>
