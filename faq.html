@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Answers to common questions about RungTrace compatibility, connections, licensing, and Rockwell terminology.">
+  <title>FAQ &amp; Terminology — RungTrace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="faq-page">
+    <article>
+      <a class="brand" href="index.html">
+        <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+        <span>Rung<span>Trace</span></span>
+      </a>
+      <p class="eyebrow">Product guide</p>
+      <h1>FAQ &amp; terminology</h1>
+      <p class="intro">The practical details plant controls engineers usually want before connecting RungTrace to a system.</p>
+
+      <section>
+        <h2>Product and compatibility</h2>
+        <details open>
+          <summary>Which PLCs are supported?</summary>
+          <p>RungTrace supports Allen-Bradley ControlLogix and CompactLogix controllers. Both families receive the same core features, including tag discovery, monitoring and writes, trending, Gantt timelines, logic viewing, Tag Trace, and backplane scanning.</p>
+        </details>
+        <details>
+          <summary>Do I need RSLinx?</summary>
+          <p>No. You can connect directly by entering a PLC IP address or selecting a saved favorite. If RSLinx is installed, RungTrace can optionally use its driver list to discover existing PLC endpoints.</p>
+        </details>
+        <details>
+          <summary>What can I do with an L5X file?</summary>
+          <p>An L5X is a Studio 5000 project export. RungTrace uses it to graphically display ladder logic and Function Block Diagrams, show Structured Text, browse AOIs, cross-reference tags, and build Tag Trace results.</p>
+        </details>
+        <details>
+          <summary>Which logic views support live values?</summary>
+          <p>Ladder logic supports live monitoring, bit toggles, and supported value edits. Function Block Diagrams support live monitoring. Structured Text is currently view-only; live Structured Text values are planned for a later release.</p>
+        </details>
+      </section>
+
+      <section>
+        <h2>Diagnostics and performance</h2>
+        <details>
+          <summary>What is Tag Trace?</summary>
+          <p>Tag Trace finds the logic that writes to a selected tag and follows that chain through routines and Add-On Instructions. It helps isolate the bit preventing a system or sequence from enabling. A traditional cross-reference tool is also included.</p>
+        </details>
+        <details>
+          <summary>Is 50 ms sampling guaranteed?</summary>
+          <p>No. It is the fastest selectable sample interval. Actual performance depends on tag count, network latency, PLC load, and display workload. A small number of tags on a clean local network can often achieve 50 ms; larger or remote workloads may sample more slowly.</p>
+        </details>
+        <details>
+          <summary>How are accidental writes prevented?</summary>
+          <p>A global Write Enable control allows writes to be disabled while monitoring and diagnosing a system.</p>
+        </details>
+      </section>
+
+      <section>
+        <h2>Trial and licensing</h2>
+        <details>
+          <summary>Is there a free trial?</summary>
+          <p>Yes. A 30-day trial will be available when RungTrace launches.</p>
+        </details>
+        <details>
+          <summary>Does RungTrace require a continuous internet connection?</summary>
+          <p>No. Internet access is required once for initial activation. After activation, RungTrace works fully offline.</p>
+        </details>
+        <details>
+          <summary>Can I move my license to another computer?</summary>
+          <p>Yes. Customers can deactivate and transfer their machine-locked license themselves.</p>
+        </details>
+        <details>
+          <summary>What happens when a subscription expires?</summary>
+          <p>The RungTrace application can no longer be run until the subscription is renewed.</p>
+        </details>
+      </section>
+
+      <section>
+        <h2>Common Rockwell terms</h2>
+        <dl>
+          <dt>L5X</dt>
+          <dd>An XML-based project export created by Studio 5000. It contains controller logic, tags, routines, comments, and other project information.</dd>
+          <dt>AOI</dt>
+          <dd>Add-On Instruction: reusable controller logic packaged as a custom instruction.</dd>
+          <dt>CIP</dt>
+          <dd>Common Industrial Protocol: the industrial communication protocol used by EtherNet/IP devices.</dd>
+          <dt>EtherNet/IP</dt>
+          <dd>The industrial Ethernet network used to communicate directly with supported Logix controllers.</dd>
+          <dt>FBD</dt>
+          <dd>Function Block Diagram: a graphical programming language that connects functional blocks to represent control logic.</dd>
+        </dl>
+      </section>
+
+      <a class="button button-outline" href="index.html">Return home</a>
+    </article>
+  </main>
+
+  <style>
+    .faq-page { min-height: 100vh; padding: 55px 20px 90px; }
+    .faq-page article { width: min(820px, 100%); margin: auto; }
+    .faq-page .brand { margin-bottom: 70px; }
+    .faq-page h1 { margin-bottom: 18px; font-size: clamp(42px, 7vw, 68px); }
+    .faq-page .intro { max-width: 680px; margin-bottom: 65px; color: var(--muted); font-size: 17px; line-height: 1.75; }
+    .faq-page section { margin-bottom: 58px; }
+    .faq-page h2 { margin-bottom: 20px; font-size: 26px; }
+    .faq-page details { border-top: 1px solid var(--line); }
+    .faq-page details:last-of-type { border-bottom: 1px solid var(--line); }
+    .faq-page summary { padding: 21px 4px; color: var(--muted-bright); font-size: 15px; font-weight: 600; cursor: pointer; }
+    .faq-page details p { max-width: 730px; padding: 0 4px 23px; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .faq-page dl { display: grid; grid-template-columns: 120px 1fr; border-top: 1px solid var(--line); }
+    .faq-page dt, .faq-page dd { margin: 0; padding: 19px 4px; border-bottom: 1px solid var(--line); }
+    .faq-page dt { color: var(--blue-bright); font-family: var(--mono); font-size: 12px; font-weight: 600; }
+    .faq-page dd { color: var(--muted); font-size: 14px; line-height: 1.7; }
+    @media (max-width: 620px) {
+      .faq-page { padding-top: 30px; }
+      .faq-page .brand { margin-bottom: 50px; }
+      .faq-page dl { grid-template-columns: 1fr; }
+      .faq-page dt { padding-bottom: 4px; border-bottom: 0; }
+      .faq-page dd { padding-top: 4px; }
+    }
+  </style>
+</body>
+</html>
