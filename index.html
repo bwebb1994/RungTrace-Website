@@ -410,23 +410,35 @@
       <div class="download-circuit" aria-hidden="true"></div>
       <div class="container download-card reveal">
         <div class="download-copy">
-          <div class="eyebrow"><span class="status-dot"></span> Coming soon</div>
+          <div class="eyebrow"><span class="status-dot"></span> <span data-release-status>Checking latest release</span></div>
           <h2>Try the complete toolkit free for 30 days.</h2>
-          <p>RungTrace is preparing for release. At launch, anyone can start a 30-day trial before choosing a paid license.</p>
+          <p data-release-summary>Checking GitHub for the latest RungTrace release.</p>
           <div class="release-meta">
             <span>Version <strong data-version>1.0.0</strong></span>
             <i></i>
-            <span>Availability <strong data-release-date>Coming soon</strong></span>
+            <span>Released <strong data-release-date>Checking...</strong></span>
             <i></i>
             <span>Windows x64</span>
           </div>
         </div>
         <div class="download-action">
-          <a class="button button-primary button-download" href="#" data-download>
+          <a class="button button-primary button-download is-disabled" href="#" aria-disabled="true" data-download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 20h14"/></svg>
-            Download when available
+            <span data-download-label>Checking releases...</span>
           </a>
           <a class="checksum-link" href="#" data-release-notes>View release notes <span>↗</span></a>
+        </div>
+      </div>
+      <div class="container release-history reveal" data-release-history>
+        <div class="release-history-heading">
+          <div>
+            <div class="eyebrow">Release history</div>
+            <h3>Recent versions</h3>
+          </div>
+          <a href="https://github.com/bwebb1994/RungTrace-Downloads/releases" target="_blank" rel="noopener">View all on GitHub <span>&#8599;</span></a>
+        </div>
+        <div class="release-list" data-release-list aria-live="polite" aria-busy="true">
+          <div class="release-list-message">Loading published versions...</div>
         </div>
       </div>
     </section>

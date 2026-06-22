@@ -8,6 +8,12 @@ window.RUNGTRACE_CONFIG = {
   releaseDate: "Coming soon",
   downloadUrl: "",
   releaseNotesUrl: "",
+  releases: {
+    owner: "bwebb1994",
+    repository: "RungTrace-Downloads",
+    maximumShown: 6,
+    installerAssetPattern: "\\.(exe|msi|msix|zip)$"
+  },
   documentationUrl: "",
   licensePortalUrl: "",
   salesEmail: "",
