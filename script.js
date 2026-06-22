@@ -91,10 +91,10 @@
 
   const loadGitHubReleases = async () => {
     const releasesConfig = config.releases || {};
-    const owner = releasesConfig.owner;
-    const repository = releasesConfig.repository;
+    const owner = releasesConfig.owner || 'bwebb1994';
+    const repository = releasesConfig.repository || 'RungTrace-Downloads';
     const releaseList = $('[data-release-list]');
-    if (!owner || !repository || !releaseList) return;
+    if (!releaseList) return;
 
     const maximumShown = Math.max(1, Number(releasesConfig.maximumShown) || 6);
     let installerPattern;
