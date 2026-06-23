@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Contact Brady Webb for RungTrace licensing, support, and sales questions.">
+  <title>Contact Us - RungTrace</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="contact-page">
+    <article>
+      <a class="brand" href="index.html">
+        <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+        <span>Rung<span>Trace</span></span>
+      </a>
+      <p class="eyebrow">Contact</p>
+      <h1>Talk to the person building RungTrace.</h1>
+      <p class="intro">For site licensing, support, sales questions, trial help, or deployment planning, reach out directly.</p>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:brady@webbinnovations.com?subject=RungTrace%20inquiry">
+          <span>Email</span>
+          <strong>brady@webbinnovations.com</strong>
+        </a>
+        <a class="contact-card" href="tel:+17145145835">
+          <span>Phone</span>
+          <strong>(714) 514-5835</strong>
+        </a>
+        <div class="contact-card">
+          <span>Contact</span>
+          <strong>Brady Webb</strong>
+        </div>
+      </div>
+
+      <div class="contact-actions">
+        <a class="button button-primary" href="mailto:brady@webbinnovations.com?subject=RungTrace%20site%20license">
+          Email about site licensing
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m-5-5 5 5-5 5"/></svg>
+        </a>
+        <a class="button button-outline" href="index.html#licensing">View licensing</a>
+      </div>
+    </article>
+  </main>
+  <style>
+    .contact-page{min-height:100vh;display:grid;place-items:center;padding:120px 24px 60px;background:radial-gradient(circle at 70% 20%,rgba(22,137,255,.12),transparent 32%),linear-gradient(180deg,#07101c 0%,#060b12 100%)}
+    .contact-page article{width:min(900px,100%);padding:46px;border:1px solid var(--line);border-radius:10px;background:rgba(13,22,35,.88);box-shadow:0 30px 80px rgba(0,0,0,.25)}
+    .contact-page .brand{margin-bottom:52px}
+    .contact-page h1{max-width:720px;margin-bottom:18px;font-size:clamp(42px,6vw,68px)}
+    .contact-page .intro{max-width:640px;margin-bottom:34px;color:var(--muted-bright);font-size:17px;line-height:1.7}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 0 32px}
+    .contact-card{min-height:132px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;border:1px solid var(--line);border-radius:8px;background:#0b1420;transition:border-color .2s,background .2s,transform .2s}
+    a.contact-card:hover{transform:translateY(-2px);border-color:rgba(56,168,255,.5);background:rgba(22,137,255,.08)}
+    .contact-card span{color:var(--blue-bright);font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .contact-card strong{overflow-wrap:anywhere;color:var(--text);font-size:18px;line-height:1.35}
+    .contact-actions{display:flex;gap:12px;flex-wrap:wrap}
+    @media(max-width:760px){.contact-grid{grid-template-columns:1fr}.contact-page article{padding:32px}.contact-page .brand{margin-bottom:38px}.contact-actions .button{width:100%}}
+  </style>
+</body>
+</html>
