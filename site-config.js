@@ -22,12 +22,12 @@ window.RUNGTRACE_CONFIG = {
     engineer: {
       price: "$499",
       note: "per year",
-      checkoutUrl: ""
+      checkoutUrl: "https://app.cryptolens.io/Form/P/M4yZEqDv/2490"
     },
     team: {
       price: "$399",
       note: "per seat / year · 5–25 seats",
-      checkoutUrl: ""
+      checkoutUrl: "https://app.cryptolens.io/Form/P/uiCiejjq/2494"
     }
   }
 };
