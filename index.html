@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="RungTrace gives teams affordable PLC logic visibility for Allen-Bradley controllers without buying another full Studio 5000 license.">
   <meta name="theme-color" content="#07101c">
-  <title>RungTrace — PLC Logic Visibility Without the Studio 5000 Price Tag</title>
+  <title>RungTrace - PLC Logic Visibility Without the Studio 5000 Price Tag</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="shortcut icon" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -80,95 +80,24 @@
 
         <div class="product-stage reveal reveal-delay">
           <div class="window-shadow"></div>
-          <div class="app-window" data-tilt>
-            <div class="app-titlebar">
-              <div class="app-brand">
-                <img src="RungTrace Logo No Text.png" alt="" width="23" height="23">
-                <span>RungTrace</span>
-              </div>
-              <div class="window-controls"><i></i><i></i><i></i></div>
+          <div class="value-diagram" data-tilt>
+            <div class="value-node license-node">
+              <small>Traditional path</small>
+              <strong>Studio 5000 seat</strong>
+              <span>High-cost access just to inspect logic</span>
             </div>
-            <div class="app-toolbar">
-              <button class="tool-active">Logic Viewer</button>
-              <button>Watch List</button>
-              <button>Plot</button>
-              <span class="connection"><i></i> 192.168.1.10</span>
+            <div class="value-bridge">
+              <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+              <span>RungTrace</span>
             </div>
-            <div class="app-body">
-              <aside class="logic-tree">
-                <small>PROJECT</small>
-                <p class="tree-open">⌄ MainProgram</p>
-                <p class="tree-child selected">MainRoutine</p>
-                <p class="tree-child">Motor_Control</p>
-                <p class="tree-child">Fault_Handling</p>
-                <small>TAGS</small>
-                <p>Controller Tags</p>
-                <p>Program Tags</p>
-              </aside>
-              <div class="logic-canvas">
-                <div class="canvas-topline">
-                  <span>MainProgram / MainRoutine</span>
-                  <span class="live-pill"><i></i> LIVE</span>
-                </div>
-                <div class="rung-comment">Motor 1 start permissive and seal-in circuit</div>
-                <div class="rung">
-                  <span class="rail"></span>
-                  <span class="wire"></span>
-                  <div class="contact contact-on">
-                    <span>Motor_Start</span>
-                    <b>—| |—</b>
-                    <em>TRUE</em>
-                  </div>
-                  <span class="wire short"></span>
-                  <div class="contact contact-off">
-                    <span>Safety_OK</span>
-                    <b>—| |—</b>
-                    <em>FALSE</em>
-                  </div>
-                  <span class="wire"></span>
-                  <div class="coil">
-                    <span>Motor_Run</span>
-                    <b>—( )—</b>
-                    <em>FALSE</em>
-                  </div>
-                  <span class="rail rail-right"></span>
-                </div>
-                <div class="trace-callout">
-                  <div class="callout-icon">!</div>
-                  <div><small>BLOCKING CONDITION</small><strong>Safety_OK is false</strong></div>
-                  <span>Rung 12</span>
-                </div>
-                <div class="rung second-rung">
-                  <span class="rail"></span>
-                  <span class="wire"></span>
-                  <div class="contact contact-on">
-                    <span>Motor_Run</span><b>—| |—</b><em>TRUE</em>
-                  </div>
-                  <span class="wire grow"></span>
-                  <div class="timer">
-                    <span>TON</span>
-                    <div><small>Timer</small><b>Run_Timer</b></div>
-                    <div><small>PRE</small><b>5000</b></div>
-                    <div><small>ACC</small><b>2840</b></div>
-                  </div>
-                  <span class="wire"></span>
-                  <span class="rail rail-right"></span>
-                </div>
-              </div>
+            <div class="value-node team-node">
+              <small>Troubleshooting path</small>
+              <strong>Logic visibility for the team</strong>
+              <span>Open L5X files, trace tags, monitor values</span>
             </div>
-            <div class="app-statusbar">
-              <span><i></i> Connected</span>
-              <span>Polling 14 tags · 100 ms</span>
-              <span>v<span data-version>1.0.0</span></span>
+            <div class="value-flow">
+              <i></i><i></i><i></i>
             </div>
-          </div>
-          <div class="floating-card floating-trace">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3v5m0 8v5M3 8h6v8H3m15-5V3m0 18v-5m-3-5h6v5h-6"/></svg>
-            <div><small>TAG TRACE</small><strong>Write path found</strong></div>
-          </div>
-          <div class="floating-card floating-latency">
-            <i></i>
-            <div><small>LIVE POLLING</small><strong>100 ms</strong></div>
           </div>
         </div>
       </div>
@@ -189,7 +118,7 @@
         <div class="section-intro centered reveal">
           <div class="eyebrow">From symptom to source</div>
           <h2>Stop searching. Start tracing.</h2>
-          <p>When the call is “Motor M300 isn’t running,” RungTrace takes you from a site-wide search to the exact blocking condition in minutes.</p>
+          <p>When the call is "Motor M300 is not running," RungTrace takes you from a site-wide search to the exact blocking condition in minutes.</p>
         </div>
         <div class="workflow-grid">
           <article class="workflow-step reveal">
@@ -214,7 +143,7 @@
               <svg viewBox="0 0 28 28" aria-hidden="true"><path d="M5 14h5l3-7 4 14 3-7h3M4 24h20"/></svg>
             </div>
             <h3>Trace the cause</h3>
-            <p>Select any tag on the rung. Tag Trace follows every write—even through Add-On Instructions—and reveals the bit holding the process back.</p>
+            <p>Select any tag on the rung. Tag Trace follows every write, even through Add-On Instructions, and reveals the bit holding the process back.</p>
           </article>
         </div>
       </div>
@@ -240,12 +169,22 @@
               <h3>Turn an L5X file into a live workstation.</h3>
               <p>Graphically browse ladder logic and function block diagrams, or view structured text and AOIs, without a Studio 5000 license. Monitor FBD values; monitor, toggle, and edit supported values directly in ladder logic.</p>
             </div>
-            <div class="mini-rung-visual" aria-hidden="true">
-              <div><span class="mini-label">Start_PB</span><b class="energized">—| |—</b></div>
-              <i></i>
-              <div><span class="mini-label">Guard_OK</span><b>—| |—</b></div>
-              <i></i>
-              <div><span class="mini-label">Conveyor_Run</span><b>—( )—</b></div>
+            <div class="logic-concept-visual" aria-hidden="true">
+              <div class="logic-capability">
+                <span>Browse</span><strong>Ladder, FBD, ST, AOIs</strong>
+              </div>
+              <div class="logic-capability is-live">
+                <span>Monitor</span><strong>Live values in context</strong>
+              </div>
+              <div class="logic-capability">
+                <span>Interact</span><strong>Toggle and edit supported values</strong>
+              </div>
+              <div class="logic-capability">
+                <span>Find</span><strong>Search tags and routines fast</strong>
+              </div>
+              <div class="logic-capability">
+                <span>Trace</span><strong>Jump from value to writer</strong>
+              </div>
             </div>
           </article>
 
@@ -256,11 +195,18 @@
             <span class="feature-kicker">Tag Trace</span>
             <h3>Skip the cross-reference chase.</h3>
             <p>Select a tag anywhere on a rung and instantly build a visual flow of everything that writes to it. RungTrace follows the chain through routines and AOIs until the bit preventing the system from enabling is clear. Traditional cross-reference remains available when you need it.</p>
-            <div class="dependency-visual" aria-hidden="true">
-              <span class="node node-root">Motor_Run</span>
-              <i class="branch"></i>
-              <span class="node node-good">Start_PB ✓</span>
-              <span class="node node-bad">Safety_OK ×</span>
+            <div class="trace-concept-visual" aria-hidden="true">
+              <div class="trace-card trace-card-focus">
+                <span>Rung 12</span><strong>Motor_Run</strong><em>blocked</em>
+              </div>
+              <i></i>
+              <div class="trace-card">
+                <span>Writer</span><strong>Safety_OK</strong><em>false</em>
+              </div>
+              <i></i>
+              <div class="trace-card">
+                <span>Root cause</span><strong>Guard_Closed</strong><em>open</em>
+              </div>
             </div>
           </article>
 
@@ -271,12 +217,15 @@
             <span class="feature-kicker">Real-time plotting</span>
             <h3>See values change over time.</h3>
             <p>Trend tags from multiple PLCs on one chart, with selectable sampling as fast as 50 ms. Actual rates vary with network conditions and workload. Pause, inspect, compare, and export the moment the process goes wrong.</p>
-            <svg class="chart-visual" viewBox="0 0 330 100" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1689ff" stop-opacity=".28"/><stop offset="1" stop-color="#1689ff" stop-opacity="0"/></linearGradient></defs>
-              <path class="chart-grid" d="M0 20h330M0 50h330M0 80h330M55 0v100M110 0v100M165 0v100M220 0v100M275 0v100"/>
-              <path class="chart-area" d="M0 76 25 72 50 74 75 38 100 45 125 42 150 65 175 61 200 25 225 31 250 29 275 50 300 46 330 18V100H0Z"/>
-              <path class="chart-line" d="M0 76 25 72 50 74 75 38 100 45 125 42 150 65 175 61 200 25 225 31 250 29 275 50 300 46 330 18"/>
-            </svg>
+            <div class="plot-visual" aria-hidden="true">
+              <div class="plot-toolbar"><span>View: 53.1 s</span><strong>Rate: 50 ms</strong></div>
+              <div class="plot-lane lane-blue"><span>Tank_Level</span><i style="--x:8%">29.8</i><i style="--x:27%">36.4</i><i style="--x:49%">44.4</i><i style="--x:68%">75.3</i><i style="--x:88%">38.2</i></div>
+              <div class="plot-lane lane-green"><span>Fill_SP_Low</span><i style="--x:18%">20</i><i style="--x:45%">22</i><i style="--x:72%">20</i><i style="--x:88%">20</i></div>
+              <div class="plot-lane lane-red"><span>Fill_SP_High</span><i style="--x:15%">80</i><i style="--x:38%">75</i><i style="--x:63%">80</i><i style="--x:88%">80</i></div>
+              <div class="plot-lane lane-yellow"><span>LSL_Low</span><i style="--x:18%">1</i><i style="--x:35%">0</i><i style="--x:61%">0</i><i style="--x:88%">1</i></div>
+              <div class="plot-lane lane-cyan"><span>Drain_Rate</span><i style="--x:24%">0.8</i><i style="--x:49%">1.2</i><i style="--x:66%">2.4</i><i style="--x:86%">3.6</i></div>
+              <div class="plot-cursor"></div>
+            </div>
           </article>
 
           <article class="feature-card reveal">
@@ -284,7 +233,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4v16h16M7 8h5v3H7zm4 5h7v3h-7zm-4 5h9v2H7z"/></svg>
             </div>
             <span class="feature-kicker">Sequence timing</span>
-            <h3>Slow down the process—without slowing the machine.</h3>
+            <h3>Slow down the process without slowing the machine.</h3>
             <p>Turn high-speed machine operations into a color-coded Gantt chart. Expose missed steps, sequence delays, and timing drift that happen too quickly to catch in live logic.</p>
             <div class="gantt-visual" aria-hidden="true">
               <span style="--start:0;--width:48%"></span>
@@ -298,16 +247,25 @@
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3zM7 7v10m5-10v10m5-10v10M5 4h14M5 20h14"/></svg>
               </div>
-              <span class="feature-kicker">Hardware visibility</span>
-              <h3>Spot chassis problems at a glance.</h3>
-              <p>Scan backplanes across connected PLCs, identify faulted modules, inspect firmware, and compare live hardware with the L5X configuration to surface missing or mismatched equipment.</p>
+              <span class="feature-kicker">Live monitoring</span>
+              <h3>Monitor every live tag in one workspace.</h3>
+              <p>Connect to multiple PLCs, build watch lists, see live values and read quality, and keep writes behind an explicit enable control while you troubleshoot.</p>
             </div>
-            <div class="chassis" aria-hidden="true">
-              <div class="module processor"><i></i><small>1756-L83E</small><span>RUN</span><span>I/O</span></div>
-              <div class="module"><i></i><small>EN2T</small><span>NET</span><span>OK</span></div>
-              <div class="module"><i></i><small>IB16</small><span>0 1 2 3</span><span>4 5 6 7</span></div>
-              <div class="module module-warn"><i></i><small>OB16E</small><span>0 1 2 3</span><span>4 5 6 7</span></div>
-              <div class="module empty"><small>EMPTY</small></div>
+            <div class="tag-table-visual" aria-hidden="true">
+              <div class="tag-table-head"><span>Tag Monitor</span><strong>2 PLCs connected</strong></div>
+              <div class="tag-table-row">
+                <span>WaterTreatment</span><b>Tank_Level</b><em>38.483</em><i>REAL</i><strong>Good</strong>
+              </div>
+              <div class="tag-table-row">
+                <span>Line_03</span><b>Cycle_Time</b><em>12.84 s</em><i>TIMER</i><strong>Good</strong>
+              </div>
+              <div class="tag-table-row is-active">
+                <span>WaterTreatment</span><b>Pump_Run</b><em>TRUE</em><i>BOOL</i><strong>Good</strong>
+              </div>
+              <div class="tag-table-row">
+                <span>Line_03</span><b>Reject_Count</b><em>184</em><i>DINT</i><strong>Good</strong>
+              </div>
+              <div class="tag-table-foot"><span>Writes disabled</span><button type="button" tabindex="-1">Enable Writes</button></div>
             </div>
           </article>
         </div>
@@ -326,12 +284,12 @@
         <div class="floor-copy reveal">
           <div class="eyebrow">Designed for the plant floor</div>
           <h2>Your diagnostic workstation, wherever the problem is.</h2>
-          <p>No installer. No runtime dependencies. No mandatory RSLinx setup. RungTrace is a lightweight, self-contained Windows application you can keep on your laptop or USB drive—and deploy without another software stack to manage.</p>
+          <p>No installer. No runtime dependencies. No mandatory RSLinx setup. RungTrace is a lightweight, self-contained Windows application you can keep on your laptop or USB drive, and deploy without another software stack to manage.</p>
           <ul class="check-list">
-            <li><span>✓</span> Direct CIP communication over EtherNet/IP</li>
-            <li><span>✓</span> No Studio 5000 license required for L5X viewing</li>
-            <li><span>✓</span> Full feature support for ControlLogix and CompactLogix</li>
-            <li><span>✓</span> A fraction of the cost of a full Studio 5000 license</li>
+            <li><span>&#10003;</span> Direct CIP communication over EtherNet/IP</li>
+            <li><span>&#10003;</span> No Studio 5000 license required for L5X viewing</li>
+            <li><span>&#10003;</span> Full feature support for ControlLogix and CompactLogix</li>
+            <li><span>&#10003;</span> A fraction of the cost of a full Studio 5000 license</li>
           </ul>
         </div>
         <div class="floor-panel reveal reveal-delay">
@@ -343,7 +301,7 @@
           <div class="system-row"><span>Runtime</span><strong>Self-contained</strong></div>
           <div class="system-row"><span>PLC connection</span><strong>EtherNet/IP</strong></div>
           <div class="system-row"><span>Project format</span><strong>Studio 5000 L5X</strong></div>
-          <div class="system-row"><span>License</span><strong>Machine-locked · Self-transfer</strong></div>
+          <div class="system-row"><span>License</span><strong>Machine-locked - Self-transfer</strong></div>
         </div>
       </div>
     </section>
@@ -363,7 +321,7 @@
               <h3>Individual</h3>
               <p>For one controls professional working across machines and sites.</p>
             </div>
-            <div class="price" data-price="engineer">$—</div>
+            <div class="price" data-price="engineer">$--</div>
             <span class="price-note" data-price-note="engineer">per license</span>
             <ul>
               <li>One active machine</li>
@@ -384,7 +342,7 @@
               <h3>Team</h3>
               <p>For controls teams purchasing 5 to 25 annual seats.</p>
             </div>
-            <div class="price" data-price="team">$—</div>
+            <div class="price" data-price="team">$--</div>
             <span class="price-note" data-price-note="team">per license pack</span>
             <ul>
               <li>Five-seat minimum</li>
@@ -404,7 +362,7 @@
               <h3>Site License</h3>
               <p>Flexible deployment for facilities and engineering groups.</p>
             </div>
-            <div class="price price-custom">Let’s talk</div>
+            <div class="price price-custom">Let's talk</div>
             <span class="price-note">Volume licensing</span>
             <ul>
               <li>Custom machine count</li>
@@ -442,7 +400,7 @@
       <div class="container download-card reveal">
         <div class="download-copy">
           <div class="eyebrow"><span class="status-dot"></span> <span data-release-status>Checking latest release</span></div>
-          <h2>Try the complete toolkit free for 30 days.</h2>
+          <h2>Download the latest RungTrace build.</h2>
           <p data-release-summary>Checking GitHub for the latest RungTrace release.</p>
           <div class="release-meta">
             <span>Version <strong data-version>1.0.0</strong></span>
@@ -457,19 +415,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 20h14"/></svg>
             <span data-download-label>Checking releases...</span>
           </a>
-          <a class="checksum-link" href="#" data-release-notes>View release notes <span>↗</span></a>
-        </div>
-      </div>
-      <div class="container release-history reveal" data-release-history>
-        <div class="release-history-heading">
-          <div>
-            <div class="eyebrow">Release history</div>
-            <h3>Recent versions</h3>
-          </div>
-          <a href="https://github.com/bwebb1994/RungTrace-Downloads/releases" target="_blank" rel="noopener">View all on GitHub <span>&#8599;</span></a>
-        </div>
-        <div class="release-list" data-release-list aria-live="polite" aria-busy="true">
-          <div class="release-list-message">Loading published versions...</div>
+          <a class="checksum-link" href="#" data-release-notes>View on GitHub <span>&#8599;</span></a>
         </div>
       </div>
     </section>
@@ -484,7 +430,7 @@
           <div><span>01</span><p><strong>Windows 10 or 11</strong>64-bit system recommended.</p></div>
           <div><span>02</span><p><strong>Network access</strong>Your PC must be able to reach the PLC over EtherNet/IP.</p></div>
           <div><span>03</span><p><strong>L5X export</strong>Required for logic viewing, cross-reference, Tag Trace, and other project-aware analysis.</p></div>
-          <div><span>04</span><p><strong>Internet access</strong>Required once for initial license or trial activation. The application works offline afterward.</p></div>
+          <div><span>04</span><p><strong>Internet access</strong>Required once for initial license activation. The application works offline afterward.</p></div>
         </div>
       </div>
     </section>
@@ -506,7 +452,7 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <span>© <span data-year></span> RungTrace. All rights reserved.</span>
+      <span>&copy; <span data-year></span> RungTrace. All rights reserved.</span>
       <span>Allen-Bradley, ControlLogix, CompactLogix, Studio 5000, and RSLinx are trademarks of Rockwell Automation, Inc. RungTrace is not affiliated with or endorsed by Rockwell Automation.</span>
     </div>
   </footer>

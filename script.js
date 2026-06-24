@@ -80,21 +80,6 @@
     }).format(new Date(dateValue));
   };
 
-  const formatFileSize = (bytes) => {
-    if (!Number.isFinite(bytes) || bytes <= 0) return '';
-    const units = ['B', 'KB', 'MB', 'GB'];
-    const unitIndex = Math.min(Math.floor(Math.log(bytes) / Math.log(1024)), units.length - 1);
-    const value = bytes / (1024 ** unitIndex);
-    return `${value.toFixed(unitIndex > 1 ? 1 : 0)} ${units[unitIndex]}`;
-  };
-
-  const escapeHtml = (value) => String(value)
-    .replaceAll('&', '&amp;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;');
-
   const getInstallerAsset = (release, pattern) => {
     const assets = Array.isArray(release.assets) ? release.assets : [];
     return assets.find((asset) => pattern.test(asset.name)) || null;
@@ -104,10 +89,12 @@
     const releasesConfig = config.releases || {};
     const owner = releasesConfig.owner || 'bwebb1994';
     const repository = releasesConfig.repository || 'RungTrace-Downloads';
-    const releaseList = $('[data-release-list]');
-    if (!releaseList) return;
+    const setText = (selector, value) => {
+      const element = $(selector);
+      if (element) element.textContent = value;
+    };
 
-    const maximumShown = Math.max(1, Number(releasesConfig.maximumShown) || 6);
+    const maximumShown = Math.max(1, Number(releasesConfig.maximumShown) || 1);
     let installerPattern;
     try {
       installerPattern = new RegExp(releasesConfig.installerAssetPattern || '\\.(exe|msi|msix|zip)$', 'i');
@@ -127,13 +114,11 @@
         .map((release) => ({ release, asset: getInstallerAsset(release, installerPattern) }))
         .filter(({ asset }) => asset);
 
-      releaseList.setAttribute('aria-busy', 'false');
       if (!releases.length) {
-        releaseList.innerHTML = '<div class="release-list-message">No downloadable releases have been published yet.</div>';
-        $('[data-release-status]').textContent = 'Coming soon';
-        $('[data-release-summary]').textContent = 'RungTrace is preparing for release. Check back soon for the first Windows download.';
-        $('[data-release-date]').textContent = 'Coming soon';
-        $('[data-download-label]').textContent = 'Download when available';
+        setText('[data-release-status]', 'Coming soon');
+        setText('[data-release-summary]', 'RungTrace is preparing for release. Check back soon for the first Windows download.');
+        setText('[data-release-date]', 'Coming soon');
+        setText('[data-download-label]', 'Download when available');
         return;
       }
 
@@ -141,39 +126,16 @@
       const version = latestRelease.tag_name.replace(/^v/i, '');
       $$('[data-version]').forEach((el) => { el.textContent = version; });
       $$('[data-release-date]').forEach((el) => { el.textContent = formatReleaseDate(latestRelease.published_at); });
-      $('[data-release-status]').textContent = latestRelease.prerelease ? 'Latest preview release' : 'Latest stable release';
-      $('[data-release-summary]').textContent = latestRelease.name || `RungTrace ${latestRelease.tag_name}`;
-      $('[data-download-label]').textContent = `Download ${latestRelease.tag_name}`;
+      setText('[data-release-status]', latestRelease.prerelease ? 'Latest preview release' : 'Latest stable release');
+      setText('[data-release-summary]', latestRelease.name || `RungTrace ${latestRelease.tag_name}`);
+      setText('[data-download-label]', `Download ${latestRelease.tag_name}`);
       setElementLink($('[data-download]'), latestAsset.browser_download_url, false);
       setElementLink($('[data-release-notes]'), latestRelease.html_url);
-
-      releaseList.innerHTML = releases.map(({ release, asset }, index) => {
-        const assetSize = formatFileSize(asset.size);
-        const detailText = [formatReleaseDate(release.published_at), assetSize].filter(Boolean).join(' | ');
-        return `
-          <article class="release-row">
-            <div class="release-version">
-              <strong>${escapeHtml(release.tag_name)}</strong>
-              ${index === 0 ? '<span class="latest-badge">Latest</span>' : ''}
-            </div>
-            <div class="release-details">
-              <strong title="${escapeHtml(release.name || release.tag_name)}">${escapeHtml(release.name || release.tag_name)}</strong>
-              <span>${escapeHtml(detailText)}</span>
-            </div>
-            <div class="release-actions">
-              <a href="${escapeHtml(release.html_url)}" target="_blank" rel="noopener">Release notes</a>
-              <a class="release-download" href="${escapeHtml(asset.browser_download_url)}">Download</a>
-            </div>
-          </article>
-        `;
-      }).join('');
     } catch (error) {
       console.error('Unable to load RungTrace releases:', error);
-      releaseList.setAttribute('aria-busy', 'false');
-      releaseList.innerHTML = '<div class="release-list-message">Release information is temporarily unavailable. Please use the GitHub releases page.</div>';
-      $('[data-release-status]').textContent = 'Download service unavailable';
-      $('[data-release-summary]').textContent = 'We could not check for the latest version. Please try again shortly.';
-      $('[data-download-label]').textContent = 'Releases unavailable';
+      setText('[data-release-status]', 'Download service unavailable');
+      setText('[data-release-summary]', 'We could not check for the latest version. Please try again shortly.');
+      setText('[data-download-label]', 'Releases unavailable');
     }
   };
 

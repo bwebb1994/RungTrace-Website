@@ -11,7 +11,7 @@ window.RUNGTRACE_CONFIG = {
   releases: {
     owner: "bwebb1994",
     repository: "RungTrace-Downloads",
-    maximumShown: 6,
+    maximumShown: 1,
     installerAssetPattern: "\\.(exe|msi|msix|zip)$"
   },
   documentationUrl: "",
