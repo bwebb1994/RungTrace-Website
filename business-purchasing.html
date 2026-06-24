@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Request a formal RungTrace business quote or invoice for company purchasing, purchase orders, ACH, checks, and approved payment terms.">
+  <title>Business Purchasing - RungTrace</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="/favicon.svg">
+  <link rel="stylesheet" href="styles.css?v=20260622-2">
+  <script src="site-config.js?v=20260622-2"></script>
+  <script src="script.js?v=20260622-2" defer></script>
+</head>
+<body class="business-page">
+  <div class="page-noise" aria-hidden="true"></div>
+
+  <header class="site-header" data-header>
+    <a class="brand" href="index.html" aria-label="RungTrace home">
+      <img src="RungTrace Logo No Text.png" alt="" width="42" height="42">
+      <span>Rung<span>Trace</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="index.html#capabilities">Capabilities</a>
+      <a href="index.html#workflow">Workflow</a>
+      <a href="index.html#licensing">Licensing</a>
+      <a href="business-purchasing.html">Business Purchasing</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="text-link desktop-only" href="index.html#download">Download</a>
+      <a class="button button-small" href="index.html#licensing">Get RungTrace</a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-button>
+        <span></span><span></span>
+        <span class="sr-only">Open menu</span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" data-mobile-nav>
+      <a href="index.html#capabilities">Capabilities</a>
+      <a href="index.html#workflow">Workflow</a>
+      <a href="index.html#licensing">Licensing</a>
+      <a href="business-purchasing.html">Business Purchasing</a>
+      <a href="index.html#download">Download</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="business-hero">
+      <div class="container business-hero-grid">
+        <div>
+          <p class="eyebrow"><span class="status-dot"></span> Corporate purchasing</p>
+          <h1>Purchase RungTrace for Your Company</h1>
+          <p class="intro">Submit your company's purchasing information below. We will review the request and provide a formal quote or invoice. Purchase orders and approved Net 30 terms are available for qualifying business customers.</p>
+          <p class="business-note">This process is for quote, purchase order, and invoice workflows. If you do not require invoicing, you can still use the standard online checkout.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#business-request-form">Request a Business Quote</a>
+            <a class="button button-ghost" href="index.html#licensing">Buy Online</a>
+          </div>
+        </div>
+        <aside class="business-process" aria-label="Business purchasing process">
+          <h2>How business purchasing works</h2>
+          <ol>
+            <li><span>01</span>Submit a business purchase request.</li>
+            <li><span>02</span>Receive a formal quote.</li>
+            <li><span>03</span>Send an approved purchase order, when required.</li>
+            <li><span>04</span>Receive a Stripe invoice.</li>
+            <li><span>05</span>Receive the RungTrace license and download instructions after the order is approved or payment is received according to the agreed terms.</li>
+          </ol>
+          <p>Requested payment terms are subject to approval.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section business-form-section">
+      <div class="container business-form-grid">
+        <div class="business-form-copy">
+          <p class="eyebrow">Request details</p>
+          <h2>Tell us what your purchasing team needs.</h2>
+          <p>Use this form for quotes, invoices, vendor onboarding, purchase order references, tax-exempt review, or payment-term requests. Do not submit credit card numbers, bank-account information, Social Security numbers, tax identification numbers, passwords, or other sensitive financial credentials.</p>
+          <p class="document-note">You may email purchase orders and supporting documents after submitting this request.</p>
+        </div>
+
+        <form
+          class="business-form"
+          id="business-request-form"
+          name="business-purchase-request"
+          method="POST"
+          action="business-purchase-success.html"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          data-business-form
+          novalidate>
+          <input type="hidden" name="form-name" value="business-purchase-request">
+          <p class="bot-field" aria-hidden="true">
+            <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
+
+          <div class="form-status" id="form-status" role="alert" aria-live="assertive" hidden></div>
+
+          <fieldset>
+            <legend>Contact information</legend>
+            <div class="form-row two-columns">
+              <label for="first-name">Requester first name <span>Required</span></label>
+              <input id="first-name" name="first_name" type="text" autocomplete="given-name" maxlength="80" required>
+            </div>
+            <div class="form-row two-columns">
+              <label for="last-name">Requester last name <span>Required</span></label>
+              <input id="last-name" name="last_name" type="text" autocomplete="family-name" maxlength="80" required>
+            </div>
+            <div class="form-row two-columns">
+              <label for="work-email">Work email address <span>Required</span></label>
+              <input id="work-email" name="work_email" type="email" autocomplete="email" maxlength="160" required>
+            </div>
+            <div class="form-row two-columns">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" maxlength="40">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Company information</legend>
+            <div class="form-row">
+              <label for="company-name">Company legal name <span>Required</span></label>
+              <input id="company-name" name="company_legal_name" type="text" autocomplete="organization" maxlength="160" required>
+            </div>
+            <div class="form-row">
+              <label for="billing-address">Billing address <span>Required</span></label>
+              <textarea id="billing-address" name="billing_address" autocomplete="billing street-address" maxlength="400" required></textarea>
+            </div>
+            <div class="form-row three-columns">
+              <label for="city">City <span>Required</span></label>
+              <input id="city" name="city" type="text" autocomplete="billing address-level2" maxlength="100" required>
+            </div>
+            <div class="form-row three-columns">
+              <label for="region">State, province, or region <span>Required</span></label>
+              <input id="region" name="region" type="text" autocomplete="billing address-level1" maxlength="100" required>
+            </div>
+            <div class="form-row three-columns">
+              <label for="postal-code">Postal code <span>Required</span></label>
+              <input id="postal-code" name="postal_code" type="text" autocomplete="billing postal-code" maxlength="30" required>
+            </div>
+            <div class="form-row">
+              <label for="country">Country <span>Required</span></label>
+              <input id="country" name="country" type="text" autocomplete="billing country-name" maxlength="100" required>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>License request</legend>
+            <div class="form-row two-columns">
+              <label for="seat-count">Number of licenses or seats requested <span>Required</span></label>
+              <input id="seat-count" name="seat_count" type="number" inputmode="numeric" min="1" max="999" step="1" required>
+            </div>
+            <div class="form-row two-columns">
+              <label for="license-term">Requested license term <span>Required</span></label>
+              <select id="license-term" name="license_term" required>
+                <option value="">Select a plan</option>
+                <option value="Individual annual license">Individual annual license</option>
+                <option value="Team annual seats (5-25)">Team annual seats (5-25)</option>
+                <option value="Site license / annual volume licensing">Site license / annual volume licensing</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <label for="intended-use">Intended use or brief purchasing notes <span>Required</span></label>
+              <textarea id="intended-use" name="intended_use" maxlength="900" required></textarea>
+            </div>
+            <div class="form-row two-columns">
+              <label for="start-date">Requested license start date</label>
+              <input id="start-date" name="requested_start_date" type="date">
+            </div>
+            <div class="form-row two-columns">
+              <label for="payment-terms">Requested payment terms</label>
+              <select id="payment-terms" name="requested_payment_terms">
+                <option value="Payment upon receipt">Payment upon receipt</option>
+                <option value="Net 15">Net 15</option>
+                <option value="Net 30">Net 30</option>
+                <option value="Other">Other</option>
+              </select>
+              <p class="field-help">Requested terms are subject to approval.</p>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Billing and purchasing information</legend>
+            <div class="form-row two-columns">
+              <label for="ap-name">Accounts payable contact name</label>
+              <input id="ap-name" name="accounts_payable_name" type="text" autocomplete="name" maxlength="120">
+            </div>
+            <div class="form-row two-columns">
+              <label for="ap-email">Accounts payable email</label>
+              <input id="ap-email" name="accounts_payable_email" type="email" autocomplete="email" maxlength="160">
+            </div>
+            <div class="form-row two-columns">
+              <label for="po-number">Purchase order number</label>
+              <input id="po-number" name="purchase_order_number" type="text" maxlength="80">
+            </div>
+            <div class="form-row checkbox-row two-columns">
+              <input id="tax-exempt" name="tax_exempt_status" type="checkbox" value="Requested tax-exempt review">
+              <label for="tax-exempt">Tax-exempt status requested</label>
+              <p class="field-help">Checking this box does not automatically remove taxes. Documentation may be required.</p>
+            </div>
+            <div class="form-row">
+              <label for="vendor-onboarding">Vendor onboarding requirements</label>
+              <textarea id="vendor-onboarding" name="vendor_onboarding_requirements" maxlength="700"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="additional-comments">Additional comments</label>
+              <textarea id="additional-comments" name="additional_comments" maxlength="900"></textarea>
+            </div>
+          </fieldset>
+
+          <div class="privacy-submit-note">
+            <p>Information submitted through this form will be used to prepare your quote, invoice, and business account. Review the <a href="privacy.html">Privacy Policy</a>.</p>
+            <button class="button button-primary" type="submit">
+              Submit business purchase request
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
