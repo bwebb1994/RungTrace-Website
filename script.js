@@ -190,6 +190,7 @@
   const businessForm = $('[data-business-form]');
   if (businessForm) {
     const formStatus = $('[data-business-form] .form-status');
+    const submitButton = $('button[type="submit"]', businessForm);
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const clearFieldError = (field) => {
@@ -222,7 +223,20 @@
       field.addEventListener('change', () => clearFieldError(field));
     });
 
-    businessForm.addEventListener('submit', (event) => {
+    const showFormStatus = (message) => {
+      if (!formStatus) return;
+      formStatus.textContent = message;
+      formStatus.hidden = false;
+    };
+
+    const setSubmitting = (isSubmitting) => {
+      if (!submitButton) return;
+      submitButton.disabled = isSubmitting;
+      submitButton.textContent = isSubmitting ? 'Submitting request...' : 'Submit business purchase request';
+    };
+
+    businessForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
       const errors = [];
       const fields = $$('input, select, textarea', businessForm)
         .filter((field) => field.type !== 'hidden' && field.name !== 'bot-field');
@@ -256,19 +270,44 @@
         }
       });
 
-      if (!errors.length) {
-        trackEvent('business_purchase_request_submitted');
+      if (errors.length) {
+        errors.forEach(({ field, message }) => setFieldError(field, message));
+        const countText = errors.length === 1 ? '1 field needs attention.' : `${errors.length} fields need attention.`;
+        showFormStatus(`${countText} Please review the highlighted fields and submit again.`);
+        errors[0].field.focus();
         return;
       }
 
-      event.preventDefault();
-      errors.forEach(({ field, message }) => setFieldError(field, message));
-      if (formStatus) {
-        const countText = errors.length === 1 ? '1 field needs attention.' : `${errors.length} fields need attention.`;
-        formStatus.textContent = `${countText} Please review the highlighted fields and submit again.`;
-        formStatus.hidden = false;
+      setSubmitting(true);
+      try {
+        const payload = Object.fromEntries(new FormData(businessForm).entries());
+        const response = await fetch(businessForm.action, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const result = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          if (result.errors) {
+            Object.entries(result.errors).forEach(([name, message]) => {
+              const field = businessForm.elements[name];
+              if (field) setFieldError(field, message);
+            });
+            const firstInvalid = businessForm.querySelector('[aria-invalid="true"]');
+            firstInvalid?.focus();
+          }
+          showFormStatus(result.message || 'We could not submit the request. Please review the form and try again.');
+          return;
+        }
+
+        trackEvent('business_purchase_request_submitted');
+        window.location.href = businessForm.dataset.successUrl || 'business-purchase-success.html';
+      } catch {
+        showFormStatus('We could not submit the request. Please check your connection and try again.');
+      } finally {
+        setSubmitting(false);
       }
-      errors[0].field.focus();
     });
   }
 
