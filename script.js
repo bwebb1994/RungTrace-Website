@@ -5,6 +5,17 @@
   const toast = $('[data-toast]');
   let toastTimer;
 
+  const trackEvent = (eventName) => {
+    if (!eventName) return;
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', eventName);
+    } else if (typeof window.plausible === 'function') {
+      window.plausible(eventName);
+    } else if (Array.isArray(window.dataLayer)) {
+      window.dataLayer.push({ event: eventName });
+    }
+  };
+
   const showToast = () => {
     if (!toast) return;
     toast.classList.add('visible');
@@ -167,6 +178,103 @@
   };
 
   loadGitHubReleases();
+
+  if (document.body.classList.contains('business-page')) {
+    trackEvent('business_purchase_page_viewed');
+  }
+
+  $$('[data-analytics-event]').forEach((element) => {
+    element.addEventListener('click', () => trackEvent(element.dataset.analyticsEvent));
+  });
+
+  const businessForm = $('[data-business-form]');
+  if (businessForm) {
+    const formStatus = $('[data-business-form] .form-status');
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    const clearFieldError = (field) => {
+      field.removeAttribute('aria-invalid');
+      const errorId = field.getAttribute('aria-describedby');
+      if (!errorId) return;
+      const error = document.getElementById(errorId);
+      if (error?.classList.contains('field-error')) error.remove();
+      field.removeAttribute('aria-describedby');
+    };
+
+    const setFieldError = (field, message) => {
+      const existingId = field.getAttribute('aria-describedby');
+      if (existingId) {
+        const existing = document.getElementById(existingId);
+        if (existing?.classList.contains('field-error')) existing.remove();
+      }
+      const errorId = `${field.id || field.name}-error`;
+      const error = document.createElement('p');
+      error.className = 'field-error';
+      error.id = errorId;
+      error.textContent = message;
+      field.setAttribute('aria-invalid', 'true');
+      field.setAttribute('aria-describedby', errorId);
+      field.closest('.form-row')?.append(error);
+    };
+
+    $$('input, select, textarea', businessForm).forEach((field) => {
+      field.addEventListener('input', () => clearFieldError(field));
+      field.addEventListener('change', () => clearFieldError(field));
+    });
+
+    businessForm.addEventListener('submit', (event) => {
+      const errors = [];
+      const fields = $$('input, select, textarea', businessForm)
+        .filter((field) => field.type !== 'hidden' && field.name !== 'bot-field');
+
+      fields.forEach(clearFieldError);
+      if (formStatus) {
+        formStatus.hidden = true;
+        formStatus.textContent = '';
+      }
+
+      fields.forEach((field) => {
+        const label = businessForm.querySelector(`label[for="${field.id}"]`)?.childNodes[0]?.textContent?.trim() || field.name;
+        const value = field.type === 'checkbox' ? field.checked : field.value.trim();
+        if (field.required && !value) {
+          errors.push({ field, message: `${label} is required.` });
+          return;
+        }
+        if (field.type === 'email' && field.value.trim() && !emailPattern.test(field.value.trim())) {
+          errors.push({ field, message: `Enter a valid ${label.toLowerCase()}.` });
+        }
+        if (field.type === 'number' && field.value) {
+          const numericValue = Number(field.value);
+          const minimum = Number(field.min || 0);
+          const maximum = Number(field.max || Number.MAX_SAFE_INTEGER);
+          if (!Number.isInteger(numericValue) || numericValue < minimum || numericValue > maximum) {
+            errors.push({ field, message: `${label} must be a whole number between ${minimum} and ${maximum}.` });
+          }
+        }
+        if (field.maxLength > 0 && field.value.length > field.maxLength) {
+          errors.push({ field, message: `${label} is too long.` });
+        }
+      });
+
+      if (!errors.length) {
+        trackEvent('business_purchase_request_submitted');
+        return;
+      }
+
+      event.preventDefault();
+      errors.forEach(({ field, message }) => setFieldError(field, message));
+      if (formStatus) {
+        const countText = errors.length === 1 ? '1 field needs attention.' : `${errors.length} fields need attention.`;
+        formStatus.textContent = `${countText} Please review the highlighted fields and submit again.`;
+        formStatus.hidden = false;
+      }
+      errors[0].field.focus();
+    });
+  }
+
+  if (document.body.classList.contains('request-success-page')) {
+    trackEvent('business_purchase_request_submitted_successfully');
+  }
 
   const setEmail = (selector, email, subject) => {
     $$(selector).forEach((link) => {
