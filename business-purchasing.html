@@ -87,12 +87,10 @@
           id="business-request-form"
           name="business-purchase-request"
           method="POST"
-          action="business-purchase-success.html"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="/.netlify/functions/business-purchase-request"
           data-business-form
+          data-success-url="business-purchase-success.html"
           novalidate>
-          <input type="hidden" name="form-name" value="business-purchase-request">
           <p class="bot-field" aria-hidden="true">
             <label>Do not fill this out: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
           </p>
