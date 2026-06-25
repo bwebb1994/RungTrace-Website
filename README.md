@@ -23,7 +23,7 @@ It sends email through Resend using environment variables configured in Netlify,
 Set these Netlify environment variables before relying on the form:
 
 - `RESEND_API_KEY`: Resend API key.
-- `BUSINESS_REQUEST_EMAIL`: destination inbox for quote and purchase-order requests, such as `brady@webbinnovations.com`.
+- `BUSINESS_REQUEST_EMAIL`: destination inbox for quote and purchase-order requests, such as `sales@webbinnovations.com`.
 - `BUSINESS_REQUEST_FROM_EMAIL`: verified sender address in Resend, such as `quotes@webbinnovations.com`.
 - `BUSINESS_CONFIRMATION_FROM_EMAIL`: optional verified sender for customer confirmations. Defaults to `BUSINESS_REQUEST_FROM_EMAIL`.
 - `SEND_BUSINESS_REQUEST_CONFIRMATION`: optional. Set to `false` to disable customer confirmation emails.

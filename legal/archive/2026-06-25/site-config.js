@@ -16,8 +16,8 @@ window.RUNGTRACE_CONFIG = {
   },
   documentationUrl: "",
   licensePortalUrl: "",
-  salesEmail: "brady@webbinnovations.com",
-  supportEmail: "brady@webbinnovations.com",
+  salesEmail: "sales@webbinnovations.com",
+  supportEmail: "support@webbinnovations.com",
   pricing: {
     engineer: {
       price: "$499",
