@@ -361,6 +361,35 @@ h2 { margin-bottom: 20px; font-size: clamp(37px, 4.2vw, 56px); line-height: 1.08
 .business-purchase-intro { margin-top: 18px !important; color: var(--muted-bright) !important; }
 .price-actions { display: grid; gap: 10px; margin-top: auto; }
 .price-actions .button { margin-top: 0; }
+.team-seat-selector {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(5,12,22,.42);
+}
+.team-seat-selector label {
+  color: var(--blue-bright);
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.team-seat-selector select {
+  width: 100%;
+  min-height: 42px;
+  padding: 0 12px;
+  color: var(--text);
+  border: 1px solid #24354a;
+  border-radius: 7px;
+  background: #08101a;
+  outline: none;
+}
+.team-seat-selector select:focus { border-color: var(--blue-bright); box-shadow: 0 0 0 3px rgba(56,168,255,.12); }
+.team-seat-selector span { color: var(--muted-bright); font-size: 12px; }
 .licensing-note { margin: 28px auto 0; color: #697a8e; font-size: 11px; text-align: center; }
 .corporate-purchasing { display: grid; grid-template-columns: .75fr 1fr; gap: 46px; margin-top: 46px; padding: 34px; border: 1px solid var(--line); border-radius: 10px; background: #0b1420; }
 .corporate-purchasing h3 { margin: 0 0 12px; font-size: 26px; letter-spacing: -.025em; }

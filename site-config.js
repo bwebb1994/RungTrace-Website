@@ -103,8 +103,34 @@ window.RUNGTRACE_CONFIG = {
     },
     team: {
       price: "$399",
-      note: "per seat / year · 5–25 seats",
-      checkoutUrl: "https://app.cryptolens.io/Form/P/uiCiejjq/2494"
+      note: "per seat / year",
+      checkoutOptions: {
+        5: {
+          label: "5 seats",
+          total: "$1,995",
+          checkoutUrl: "https://app.cryptolens.io/Form/P/uiCiejjq/2494"
+        },
+        10: {
+          label: "10 seats",
+          total: "$3,990",
+          checkoutUrl: "https://app.cryptolens.io/Form/P/mCbibkfA/2502"
+        },
+        15: {
+          label: "15 seats",
+          total: "$5,985",
+          checkoutUrl: "https://app.cryptolens.io/Form/P/KcBmzAy7/2503"
+        },
+        20: {
+          label: "20 seats",
+          total: "$7,980",
+          checkoutUrl: "https://app.cryptolens.io/Form/P/ijWNRRnI/2504"
+        },
+        25: {
+          label: "25 seats",
+          total: "$9,975",
+          checkoutUrl: "https://app.cryptolens.io/Form/P/3hsS77Ay/2505"
+        }
+      }
     }
   }
 };

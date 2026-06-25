@@ -340,17 +340,28 @@
             <div class="price-top">
               <span class="plan-label">Small team</span>
               <h3>Team</h3>
-              <p>For controls teams purchasing 5 to 25 annual seats.</p>
+              <p>For controls teams purchasing standard annual seat packs online.</p>
             </div>
             <div class="price" data-price="team">$--</div>
             <span class="price-note" data-price-note="team">per license pack</span>
             <ul>
-              <li>Five-seat minimum</li>
+              <li>Standard packs of 5, 10, 15, 20, or 25 seats</li>
               <li>$399 per seat, per year</li>
               <li>All diagnostic tools</li>
               <li>Central license management</li>
               <li>Application access while subscribed</li>
             </ul>
+            <div class="team-seat-selector">
+              <label for="team-seat-count">Seat pack</label>
+              <select id="team-seat-count" data-team-seat-select>
+                <option value="5">5 seats</option>
+                <option value="10">10 seats</option>
+                <option value="15">15 seats</option>
+                <option value="20">20 seats</option>
+                <option value="25">25 seats</option>
+              </select>
+              <span data-team-total>Total $1,995 per year</span>
+            </div>
             <div class="price-actions">
               <a class="button button-primary button-full" href="#" data-checkout="team">Buy Online</a>
               <a class="button button-ghost button-full" href="business-purchasing.html" data-analytics-event="business_quote_button_clicked">Request a Business Quote</a>

@@ -63,7 +63,32 @@
     const planConfig = config.pricing?.[plan] || {};
     $$(`[data-price="${plan}"]`).forEach((el) => { el.textContent = planConfig.price || '$—'; });
     $$(`[data-price-note="${plan}"]`).forEach((el) => { el.textContent = planConfig.note || 'Pricing coming soon'; });
-    setLink(`[data-checkout="${plan}"]`, planConfig.checkoutUrl);
+    if (plan !== 'team') setLink(`[data-checkout="${plan}"]`, planConfig.checkoutUrl);
+  });
+
+  const teamSelect = $('[data-team-seat-select]');
+  const teamCheckout = $('[data-checkout="team"]');
+  const teamTotal = $('[data-team-total]');
+  const teamOptions = config.pricing?.team?.checkoutOptions || {};
+  const updateTeamCheckout = () => {
+    if (!teamSelect || !teamCheckout) return;
+    const selectedSeats = teamSelect.value;
+    const selectedOption = teamOptions[selectedSeats] || {};
+    const label = selectedOption.label || `${selectedSeats} seats`;
+    const total = selectedOption.total || '';
+    if (teamTotal) {
+      teamTotal.textContent = total ? `Total ${total} per year` : `${label} selected`;
+    }
+    const checkoutUrl = selectedOption.checkoutUrl || '';
+    setElementLink(teamCheckout, checkoutUrl);
+    teamCheckout.textContent = checkoutUrl ? `Buy ${label} Online` : `Checkout link needed for ${label}`;
+  };
+  updateTeamCheckout();
+  teamSelect?.addEventListener('change', updateTeamCheckout);
+  teamCheckout?.addEventListener('click', (event) => {
+    if (!teamCheckout.classList.contains('is-disabled')) return;
+    event.preventDefault();
+    showToast();
   });
 
   setLink('[data-download]', config.downloadUrl);
