@@ -1,6 +1,46 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+
+[[redirects]]
+  from = "/terms"
+  to = "/terms.html"
+  status = 200
+
+[[redirects]]
+  from = "/eula"
+  to = "/eula.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/cookie-policy"
+  to = "/cookie-policy.html"
+  status = 200
+
+[[redirects]]
+  from = "/subprocessors"
+  to = "/subprocessors.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacy-requests"
+  to = "/privacy-requests.html"
+  status = 200
+
+[[redirects]]
+  from = "/legal/changelog"
+  to = "/legal/changelog.html"
+  status = 200
+
 [[headers]]
   for = "/*"
   [headers.values]
