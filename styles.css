@@ -224,6 +224,41 @@ h1 span { color: #aebdd0; }
 .centered { text-align: center; }
 h2 { margin-bottom: 20px; font-size: clamp(37px, 4.2vw, 56px); line-height: 1.08; letter-spacing: -.045em; }
 .section-intro p, .section-heading > p { color: var(--muted); font-size: 17px; line-height: 1.7; }
+.demo-section {
+  overflow: hidden;
+  padding: 105px 0;
+  border-bottom: 1px solid rgba(255,255,255,.02);
+  background: radial-gradient(circle at 18% 42%, rgba(75,211,152,.08), transparent 30%), #080f18;
+}
+.demo-grid { display: grid; grid-template-columns: .55fr 1fr; gap: 58px; align-items: center; }
+.demo-copy h2 { margin-bottom: 18px; font-size: clamp(34px, 3.8vw, 50px); }
+.demo-copy p { max-width: 460px; margin-bottom: 28px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.demo-video-shell {
+  position: relative;
+  padding: 10px;
+  border: 1px solid rgba(145,180,225,.22);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(17,29,44,.9), rgba(10,18,29,.92));
+  box-shadow: 0 30px 80px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.025) inset;
+}
+.demo-video-shell::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  width: 190px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--blue-bright), transparent);
+}
+.demo-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 7px;
+  background: #050a10;
+  object-fit: contain;
+}
 .problem-section { background: linear-gradient(180deg, var(--bg), #080f18); }
 .workflow-grid { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .workflow-grid::before { content: ""; position: absolute; top: 48px; left: 16.5%; right: 16.5%; height: 1px; background: linear-gradient(90deg, transparent, rgba(22,137,255,.4), rgba(22,137,255,.4), transparent); }
@@ -602,6 +637,9 @@ footer { padding: 70px 0 25px; border-top: 1px solid var(--line); background: #0
   .hero-grid { grid-template-columns: 1fr; gap: 70px; }
   .hero-copy { max-width: 740px; }
   .product-stage { width: min(760px, 95%); margin: auto; transform: none; }
+  .demo-grid { grid-template-columns: 1fr; gap: 42px; }
+  .demo-copy { max-width: 760px; }
+  .demo-copy p { max-width: 640px; }
   .section-heading { gap: 50px; }
   .floor-grid { gap: 60px; }
   .secondary-features { grid-template-columns: repeat(2, 1fr); }
@@ -656,6 +694,8 @@ footer { padding: 70px 0 25px; border-top: 1px solid var(--line); background: #0
   .value-flow { display: none; }
   .controller-list { gap: 10px; }
   .controller-list strong { font-size: 11px; }
+  .demo-section { padding: 80px 0; }
+  .demo-video-shell { padding: 7px; }
   .workflow-grid { grid-template-columns: 1fr; gap: 55px; }
   .workflow-grid::before { display: none; }
   .workflow-step { padding: 0 10px; }
